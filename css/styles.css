@@ -1,0 +1,159 @@
+/**
+ * styles.css — Mujeres Que Cambian La Historia
+ * Paleta pastel clara inspirada en Diseños ELEMA
+ * Rosa palo · Crema · Morado suave · Naranja cálido
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap');
+
+:root {
+  /* ── Base ── */
+  --white:    #FDFAF6;
+  --cream:    #FAF4EE;
+  --cream-d:  #F0E4D4;
+  --cream-dd: #DDD0BC;
+  --dark:     #2A2018;
+  --text:     #3C3028;
+  --text-m:   #8A7A68;
+
+  /* ── Rosa ELEMA (del logo) ── */
+  --rose:     #F5C8CE;
+  --rose-d:   #C4606A;
+  --rose-l:   #FEF0F2;
+  --rose-m:   #FAD8DC;
+
+  /* ── Destacados título ── */
+  --purple:   #9B6ED0;   /* MUJERES */
+  --purple-d: #5A3090;
+  --purple-l: #EDE4F8;
+  --orange:   #E8844A;   /* HISTORIA */
+  --orange-d: #9A4010;
+  --orange-l: #FDF0E6;
+
+  /* ── Verde rama/mimosa ── */
+  --leaf:     #7A9E68;
+  --leaf-d:   #3A5428;
+  --leaf-l:   #E8F4E0;
+  --mimosa:   #F5D060;
+  --mimosa-d: #806010;
+
+  /* ── Niveles pasteles ── */
+  /* Infantil: amarillo miel */
+  --a-bg:    #FEF8E0; --a-border: #D4A828; --a-dark: #5A3C00;
+
+  /* Juvenil: azul claro */
+  --b-bg:    #E8F2FC; --b-border: #4A88C8; --b-dark: #183860;
+
+  /* Adulto: verde salvia */
+  --c-bg:    #E8F4E0; --c-border: #5A9050; --c-dark: #1E4018;
+
+  /* Experto: lavanda */
+  --d-bg:    #EEE8FA; --d-border: #8A68C0; --d-dark: #3A1870;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 68px; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a   { color: inherit; text-decoration: none; }
+
+/* ── Textura ganchillo ── */
+.crochet-bg {
+  background-color: var(--cream);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cellipse cx='30' cy='30' rx='10' ry='6.5' fill='none' stroke='%23C0A880' stroke-width='1' opacity='0.18'/%3E%3Cellipse cx='0' cy='0' rx='10' ry='6.5' fill='none' stroke='%23C0A880' stroke-width='1' opacity='0.18'/%3E%3Cellipse cx='60' cy='0' rx='10' ry='6.5' fill='none' stroke='%23C0A880' stroke-width='1' opacity='0.18'/%3E%3Cellipse cx='0' cy='60' rx='10' ry='6.5' fill='none' stroke='%23C0A880' stroke-width='1' opacity='0.18'/%3E%3Cellipse cx='60' cy='60' rx='10' ry='6.5' fill='none' stroke='%23C0A880' stroke-width='1' opacity='0.18'/%3E%3C/svg%3E");
+}
+
+/* ── Layout ── */
+.container         { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+.container--narrow { max-width:  780px; margin: 0 auto; padding: 0 1.5rem; }
+
+/* ── TOPBAR — claro, tipo ELEMA ── */
+.topbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: rgba(253,250,246,.97);
+  backdrop-filter: blur(16px);
+  border-bottom: 1.5px solid var(--cream-d);
+  padding: .75rem 1.5rem;
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  box-shadow: 0 2px 16px rgba(42,32,24,.06);
+}
+
+/* Logo con MUJERES en morado + HISTORIA en naranja */
+.topbar__logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: .95rem;
+  letter-spacing: -.02em;
+  white-space: nowrap;
+  color: var(--text);
+}
+.topbar__logo .w-mujeres  { color: var(--purple); }
+.topbar__logo .w-historia { color: var(--orange); }
+.topbar__logo .w-rest     { color: var(--text-m); font-weight: 600; }
+
+.topbar__levels { display: flex; gap: .4rem; flex-wrap: wrap; }
+.topbar__levels a {
+  display: inline-flex; align-items: center;
+  padding: .28rem .85rem; border-radius: 999px;
+  font-size: .7rem; font-weight: 700;
+  font-family: 'Syne', sans-serif; letter-spacing: .06em;
+  border: 1.5px solid transparent;
+  transition: transform .2s, box-shadow .2s;
+}
+.topbar__levels a:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.12); }
+.topbar__levels a.lv-a { background: var(--a-bg);  color: var(--a-dark); border-color: var(--a-border); }
+.topbar__levels a.lv-b { background: var(--b-bg);  color: var(--b-dark); border-color: var(--b-border); }
+.topbar__levels a.lv-c { background: var(--c-bg);  color: var(--c-dark); border-color: var(--c-border); }
+.topbar__levels a.lv-d { background: var(--d-bg);  color: var(--d-dark); border-color: var(--d-border); }
+
+/* ── Section label ── */
+.section-label {
+  font-family: 'Syne', sans-serif; font-size: .72rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .22em;
+  color: var(--rose-d); margin-bottom: .55rem;
+}
+
+/* ── Back link ── */
+.back-link {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-family: 'Syne', sans-serif; font-size: .72rem; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--text); padding: .4rem 1rem;
+  border: 1.5px solid var(--cream-dd); border-radius: 999px;
+  background: var(--white); transition: all .2s;
+}
+.back-link:hover {
+  background: var(--text); color: var(--cream);
+  border-color: var(--text); transform: translateY(-2px);
+}
+
+/* ── Footer ── */
+.footer {
+  background: var(--cream-d);
+  color: var(--text-m);
+  text-align: center; padding: 2.5rem 1.5rem;
+  font-size: .8rem; line-height: 1.7;
+  border-top: 1.5px solid var(--cream-dd);
+}
+.footer strong { color: var(--text); }
+
+/* ── Fade up ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.anim    { animation: fadeUp .65s ease both; }
+.anim-d1 { animation-delay: .12s; }
+.anim-d2 { animation-delay: .24s; }
+.anim-d3 { animation-delay: .38s; }
+
+@media(max-width: 600px) {
+  .topbar__levels a .lv-label { display: none; }
+  .topbar__levels a { padding: .28rem .6rem; }
+}

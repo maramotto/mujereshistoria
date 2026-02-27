@@ -1,0 +1,8 @@
+services:
+  web:
+    build: .
+    image: mujereshistoria:latest
+    container_name: mujereshistoria
+    restart: unless-stopped
+    ports:
+      - "80:80"
