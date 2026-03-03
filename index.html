@@ -80,40 +80,6 @@ body { padding-top: 64px; }
   position: relative; z-index: 1;
 }
 
-@keyframes sway {
-  0%,100% { transform: rotate(0deg) translateY(0); }
-  35%     { transform: rotate(1.8deg) translateY(-2px); }
-  70%     { transform: rotate(-1.2deg) translateY(-1px); }
-}
-@keyframes swayR {
-  0%,100% { transform: rotate(0deg) translateY(0); }
-  35%     { transform: rotate(-1.8deg) translateY(-2px); }
-  70%     { transform: rotate(1.2deg) translateY(-1px); }
-}
-@keyframes petalPulse {
-  0%,100% { opacity: .92; transform: scale(1); }
-  50%     { opacity: 1;   transform: scale(1.05); }
-}
-@keyframes pomBounce {
-  0%,100% { transform: translateY(0); }
-  50%     { transform: translateY(-6px); }
-}
-
-/* transform-origin en coordenadas del SVG para que balance bien */
-.g-branch-l { animation: sway  6s ease-in-out infinite; transform-origin: 65px 185px; }
-.g-branch-r { animation: swayR 7s ease-in-out infinite; transform-origin: 635px 185px; }
-.g-center   { animation: sway  9s 1s ease-in-out infinite; transform-origin: 350px 120px; }
-
-.p1 { animation: petalPulse 3.2s 0.0s ease-in-out infinite; transform-origin: center; }
-.p2 { animation: petalPulse 3.2s 0.5s ease-in-out infinite; transform-origin: center; }
-.p3 { animation: petalPulse 3.2s 1.0s ease-in-out infinite; transform-origin: center; }
-.p4 { animation: petalPulse 3.2s 1.5s ease-in-out infinite; transform-origin: center; }
-.p5 { animation: petalPulse 3.2s 2.0s ease-in-out infinite; transform-origin: center; }
-.m1 { animation: pomBounce 2.6s 0.0s ease-in-out infinite; transform-origin: center bottom; }
-.m2 { animation: pomBounce 2.6s 0.5s ease-in-out infinite; transform-origin: center bottom; }
-.m3 { animation: pomBounce 2.6s 1.0s ease-in-out infinite; transform-origin: center bottom; }
-.m4 { animation: pomBounce 2.6s 1.5s ease-in-out infinite; transform-origin: center bottom; }
-
 .hero-wave { position: relative; z-index: 1; margin-top: -2px; }
 
 /* ── SOBRE EL PROYECTO ── */
@@ -186,12 +152,13 @@ body { padding-top: 64px; }
   box-shadow:0 4px 24px rgba(42,32,24,.06);
   position:relative; z-index:1;
 }
-.contact-links { display:flex; gap:1.5rem; flex-wrap:wrap; }
+.contact-links { display:flex; gap:1.25rem; flex-wrap:wrap; justify-content:center; }
 .contact-item {
-  display:inline-flex; align-items:center; gap:.55rem;
-  font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:600;
-  color:var(--rose-d); padding:.5rem 1.2rem; border-radius:999px;
+  display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
+  font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:600;
+  color:var(--rose-d); padding:.6rem 1.6rem; border-radius:999px;
   border:1.5px solid var(--rose-m); background:var(--rose-l);
+  flex:1; min-width:200px;
   transition:background .2s, border-color .2s, color .2s, transform .2s;
 }
 .contact-item:hover { background:var(--rose-d); color:var(--white); border-color:var(--rose-d); transform:translateY(-2px); }
@@ -267,13 +234,30 @@ body { padding-top: 64px; }
   <a href="index.html" class="topbar__logo">
     <span class="w-mujeres">Mujeres</span><span class="w-rest"> que Cambian la </span><span class="w-historia">Historia</span>
   </a>
-  <div class="topbar__levels">
-    <a href="nivel.html?level=infantil" class="lv-a"><span class="lv-label">Infantil</span></a>
-    <a href="nivel.html?level=juvenil"  class="lv-b"><span class="lv-label">Juvenil</span></a>
-    <a href="nivel.html?level=adulto"   class="lv-c"><span class="lv-label">Adulto</span></a>
-    <a href="nivel.html?level=experto"  class="lv-d"><span class="lv-label">Experto</span></a>
+  <div class="topbar__nav">
+    <a href="#artesanas">Sobre Nosotras</a>
+    <a href="#contacto">Contacto</a>
+    <div class="nav-dropdown" id="navDropdown">
+      <button onclick="document.getElementById('navDropdown').classList.toggle('open')">
+        Respuestas <span class="nav-caret"></span>
+      </button>
+      <div class="nav-dropdown__menu">
+        <a href="nivel.html?level=infantil"><span class="lv-dot" style="background:var(--a-border)"></span> Infantil</a>
+        <a href="nivel.html?level=juvenil"><span class="lv-dot" style="background:var(--b-border)"></span> Juvenil</a>
+        <a href="nivel.html?level=adulto"><span class="lv-dot" style="background:var(--c-border)"></span> Adulto</a>
+        <a href="nivel.html?level=experto"><span class="lv-dot" style="background:var(--d-border)"></span> Experto</a>
+      </div>
+    </div>
   </div>
 </nav>
+
+<script>
+// Close dropdown when clicking outside
+document.addEventListener('click', function(e){
+  const dd = document.getElementById('navDropdown');
+  if(dd && !dd.contains(e.target)) dd.classList.remove('open');
+});
+</script>
 
 <!-- HERO -->
 <section class="hero">
@@ -289,234 +273,325 @@ body { padding-top: 64px; }
 
     <p class="hero-sub anim anim-d2">Una exposición tejida a mano que celebra a 35 mujeres extraordinarias que transformaron el mundo.</p>
 
-    <!--
-      SVG BOTÁNICO — ViewBox 0 0 700 200
-      Flores con colores visibles sobre fondo claro.
-
-      Almendro IZQUIERDA (x 5–155, y 5–195)
-        ramas oscuro cálido, pétalos rosa/lila, estambres
-      Centro (x 260–440)
-        flores + cadena de puntos de ganchillo (colores de nivel)
-      Mimosa DERECHA (x 545–695, y 5–195)
-        ramas verde oliva, pompones amarillo miel, hojitas
-    -->
     <svg class="botanical-scene anim anim-d3"
-         viewBox="0 0 700 200"
+         viewBox="0 0 900 200"
          xmlns="http://www.w3.org/2000/svg"
          role="img"
-         aria-label="Ramas de flor de almendro y mimosa decorativas">
+         aria-label="Flores de almendro y mimosa decorativas">
 
-      <!-- ═══ ALMENDRO — IZQUIERDA ═══ -->
-      <g class="g-branch-l">
-        <!-- tronco principal: de abajo-izquierda hacia arriba-derecha -->
-        <path d="M20,195 C35,155 55,110 75,65 C90,28 102,10 115,5"
-              fill="none" stroke="#8C6448" stroke-width="2.4" stroke-linecap="round"/>
-        <!-- rama lateral izq -->
-        <path d="M48,125 C30,118 12,112 2,108"
-              fill="none" stroke="#8C6448" stroke-width="1.7" stroke-linecap="round"/>
-        <!-- rama lateral der -->
-        <path d="M82,68 C98,60 116,52 130,46"
-              fill="none" stroke="#8C6448" stroke-width="1.7" stroke-linecap="round"/>
-        <!-- ramita pequeña -->
-        <path d="M62,100 C74,88 82,77 88,66"
-              fill="none" stroke="#8C6448" stroke-width="1.2" stroke-linecap="round"/>
+      <!-- ── helpers: flor almendro ──────────────────────────────────
+           Usamos <g> locales centrados en (0,0) y los posicionamos
+           con translate en el atributo transform.
+           Las animaciones son SMIL (animateTransform) para evitar
+           los problemas de transform-origin con CSS en SVG.
+      ─────────────────────────────────────────────────────────────── -->
 
-        <!-- FLOR 1 — ramita pequeña (rosa medio para que se vea en blanco) -->
-        <g class="p1" transform="translate(92,58)">
-          <circle cx="0"    cy="-7"   r="5.8" fill="#F0B8C8"/>
-          <circle cx="6.9"  cy="-2.2" r="5.8" fill="#EEB0C0"/>
-          <circle cx="4.3"  cy="5.9"  r="5.8" fill="#F0B8C8"/>
-          <circle cx="-4.3" cy="5.9"  r="5.8" fill="#EEB0C0"/>
-          <circle cx="-6.9" cy="-2.2" r="5.8" fill="#F0B8C8"/>
-          <circle cx="0"    cy="0"    r="3.8" fill="#D87898"/>
-          <circle cx="0"    cy="0"    r="1.6" fill="#B85070"/>
-          <!-- estambres -->
-          <line x1="0"  y1="-3.5" x2="0"   y2="-9"   stroke="#B85070" stroke-width=".9"/>
-          <circle cx="0"   cy="-9.5"  r="1.3" fill="#B85070"/>
-          <line x1="3"  y1="-2"   x2="7.5"  y2="-6"   stroke="#B85070" stroke-width=".9"/>
-          <circle cx="8"   cy="-6.5"  r="1.3" fill="#B85070"/>
-          <line x1="-3" y1="-2"   x2="-7.5" y2="-6"   stroke="#B85070" stroke-width=".9"/>
-          <circle cx="-8"  cy="-6.5"  r="1.3" fill="#B85070"/>
-        </g>
+      <!-- FLORES DE ALMENDRO — rosa suave -->
 
-        <!-- FLOR 2 — rama lateral izquierda -->
-        <g class="p2" transform="translate(3,100)">
-          <circle cx="0"    cy="-6.2" r="5.2" fill="#F5C8D8"/>
-          <circle cx="5.9"  cy="-1.9" r="5.2" fill="#F2C0D0"/>
-          <circle cx="3.7"  cy="5.1"  r="5.2" fill="#F5C8D8"/>
-          <circle cx="-3.7" cy="5.1"  r="5.2" fill="#F2C0D0"/>
-          <circle cx="-5.9" cy="-1.9" r="5.2" fill="#F5C8D8"/>
-          <circle cx="0"    cy="0"    r="3.2" fill="#D87898"/>
-          <line x1="0" y1="-3" x2="0" y2="-8" stroke="#B85070" stroke-width=".8"/>
-          <circle cx="0" cy="-8.5" r="1.1" fill="#B85070"/>
-        </g>
-
-        <!-- FLOR 3 — rama lateral derecha -->
-        <g class="p3" transform="translate(131,38)">
-          <circle cx="0"    cy="-6"   r="5"   fill="#F0B8C8"/>
-          <circle cx="5.7"  cy="-1.9" r="5"   fill="#F0B8C8"/>
-          <circle cx="3.5"  cy="4.9"  r="5"   fill="#EEB0C0"/>
-          <circle cx="-3.5" cy="4.9"  r="5"   fill="#EEB0C0"/>
-          <circle cx="-5.7" cy="-1.9" r="5"   fill="#F0B8C8"/>
-          <circle cx="0"    cy="0"    r="3"   fill="#D87898"/>
-          <line x1="0" y1="-2.5" x2="0" y2="-7" stroke="#B85070" stroke-width=".8"/>
-          <circle cx="0" cy="-7.5" r="1.1" fill="#B85070"/>
-        </g>
-
-        <!-- Capullos sin abrir -->
-        <ellipse cx="70" cy="58" rx="4.5" ry="7" fill="#F5C8D8" opacity=".75" transform="rotate(-25,70,58)"/>
-        <ellipse cx="44" cy="115" rx="4"  ry="6" fill="#F5C8D8" opacity=".65" transform="rotate(15,44,115)"/>
-        <!-- hojita -->
-        <ellipse cx="99" cy="77" rx="7.5" ry="3" fill="#7AAA60" opacity=".6" transform="rotate(-42,99,77)"/>
-        <ellipse cx="60" cy="145" rx="6"  ry="2.5" fill="#7AAA60" opacity=".5" transform="rotate(20,60,145)"/>
+      <!-- A1: grande, izquierda alta -->
+      <g transform="translate(68, 62)">
+        <animateTransform attributeName="transform" type="translate"
+          values="68,62; 68,56; 68,62" dur="5.2s" repeatCount="indefinite" calcMode="spline"
+          keySplines="0.45 0.05 0.55 0.95; 0.45 0.05 0.55 0.95"/>
+        <circle cx="0" cy="-12" r="9.5" fill="#F0B8C8"/>
+        <circle cx="11.4" cy="-3.7" r="9.5" fill="#EEB0C0"/>
+        <circle cx="7.0" cy="9.7" r="9.5" fill="#F0B8C8"/>
+        <circle cx="-7.0" cy="9.7" r="9.5" fill="#EEB0C0"/>
+        <circle cx="-11.4" cy="-3.7" r="9.5" fill="#F0B8C8"/>
+        <circle cx="0" cy="0" r="6" fill="#D07090"/>
+        <circle cx="0" cy="0" r="2.5" fill="#B85070"/>
+        <line x1="0" y1="-5.5" x2="0" y2="-14" stroke="#B85070" stroke-width="1.1"/>
+        <circle cx="0" cy="-15" r="2" fill="#B85070"/>
+        <line x1="4.5" y1="-3.5" x2="12" y2="-10" stroke="#B85070" stroke-width="1.1"/>
+        <circle cx="12.5" cy="-10.5" r="2" fill="#B85070"/>
+        <line x1="-4.5" y1="-3.5" x2="-12" y2="-10" stroke="#B85070" stroke-width="1.1"/>
+        <circle cx="-12.5" cy="-10.5" r="2" fill="#B85070"/>
       </g>
 
-      <!-- ═══ CENTRO — flores + cadena ganchillo ═══ -->
-      <g class="g-center">
-        <!-- ramita horizontal -->
-        <path d="M272,108 C300,88 326,72 352,64 C378,56 406,60 430,72"
-              fill="none" stroke="#8C6448" stroke-width="1.2" stroke-linecap="round" opacity=".4"/>
-        <!-- ramita vertical -->
-        <path d="M352,64 C350,46 347,26 344,12"
-              fill="none" stroke="#8C6448" stroke-width="1"   stroke-linecap="round" opacity=".38"/>
-
-        <!-- Flor izquierda -->
-        <g class="p4" transform="translate(288,96)">
-          <circle cx="0"    cy="-5.8" r="4.8" fill="#E8A8C0"/>
-          <circle cx="5.5"  cy="-1.8" r="4.8" fill="#E8A8C0"/>
-          <circle cx="3.4"  cy="4.7"  r="4.8" fill="#E8A8C0"/>
-          <circle cx="-3.4" cy="4.7"  r="4.8" fill="#E8A8C0"/>
-          <circle cx="-5.5" cy="-1.8" r="4.8" fill="#E8A8C0"/>
-          <circle cx="0"    cy="0"    r="3"   fill="#C86888"/>
-          <circle cx="0"    cy="0"    r="1.3" fill="#A84860"/>
-        </g>
-
-        <!-- Flor central grande -->
-        <g class="p1" transform="translate(352,58)">
-          <circle cx="0"    cy="-7.5" r="6.2" fill="#EAB0C8"/>
-          <circle cx="7.1"  cy="-2.3" r="6.2" fill="#E8A8C0"/>
-          <circle cx="4.4"  cy="6.1"  r="6.2" fill="#EAB0C8"/>
-          <circle cx="-4.4" cy="6.1"  r="6.2" fill="#E8A8C0"/>
-          <circle cx="-7.1" cy="-2.3" r="6.2" fill="#EAB0C8"/>
-          <circle cx="0"    cy="0"    r="3.8" fill="#D07090"/>
-          <circle cx="0"    cy="0"    r="1.6" fill="#A84860"/>
-          <line x1="0"  y1="-4"   x2="0"   y2="-10"  stroke="#A84860" stroke-width=".9"/>
-          <circle cx="0"   cy="-10.5" r="1.4" fill="#A84860"/>
-          <line x1="3.5" y1="-2.5" x2="8.5"  y2="-6.5" stroke="#A84860" stroke-width=".9"/>
-          <circle cx="9"   cy="-7"    r="1.4" fill="#A84860"/>
-          <line x1="-3.5" y1="-2.5" x2="-8.5" y2="-6.5" stroke="#A84860" stroke-width=".9"/>
-          <circle cx="-9"  cy="-7"    r="1.4" fill="#A84860"/>
-        </g>
-
-        <!-- Flor top (en ramita vertical) -->
-        <g class="p2" transform="translate(344,10)">
-          <circle cx="0"    cy="-5.2" r="4.3" fill="#F0C0D0"/>
-          <circle cx="5"    cy="-1.6" r="4.3" fill="#EEB8C8"/>
-          <circle cx="3.1"  cy="4.2"  r="4.3" fill="#F0C0D0"/>
-          <circle cx="-3.1" cy="4.2"  r="4.3" fill="#EEB8C8"/>
-          <circle cx="-5"   cy="-1.6" r="4.3" fill="#F0C0D0"/>
-          <circle cx="0"    cy="0"    r="2.6" fill="#D07090"/>
-        </g>
-
-        <!-- Flor derecha -->
-        <g class="p5" transform="translate(416,64)">
-          <circle cx="0"    cy="-5.8" r="4.8" fill="#E8A8C0"/>
-          <circle cx="5.5"  cy="-1.8" r="4.8" fill="#E8A8C0"/>
-          <circle cx="3.4"  cy="4.7"  r="4.8" fill="#E8A8C0"/>
-          <circle cx="-3.4" cy="4.7"  r="4.8" fill="#E8A8C0"/>
-          <circle cx="-5.5" cy="-1.8" r="4.8" fill="#E8A8C0"/>
-          <circle cx="0"    cy="0"    r="3"   fill="#C86888"/>
-        </g>
-
-        <!-- Cadena de puntos de ganchillo (los 4 colores de nivel + rosa) -->
-        <ellipse cx="296" cy="130" rx="10" ry="6" fill="none" stroke="var(--a-border)" stroke-width="2.2" opacity=".7"/>
-        <ellipse cx="318" cy="130" rx="10" ry="6" fill="none" stroke="var(--b-border)" stroke-width="2.2" opacity=".7"/>
-        <ellipse cx="340" cy="130" rx="10" ry="6" fill="none" stroke="var(--c-border)" stroke-width="2.2" opacity=".7"/>
-        <ellipse cx="362" cy="130" rx="10" ry="6" fill="none" stroke="var(--d-border)" stroke-width="2.2" opacity=".7"/>
-        <ellipse cx="384" cy="130" rx="10" ry="6" fill="none" stroke="var(--rose-d)"   stroke-width="2.2" opacity=".65"/>
-
-        <!-- Pétalos caídos decorativos -->
-        <ellipse cx="310" cy="158" rx="6.5" ry="3.5" fill="#F0C0D0" opacity=".5" transform="rotate(-25,310,158)"/>
-        <ellipse cx="385" cy="162" rx="5.5" ry="3"   fill="#EEB8C8" opacity=".45" transform="rotate(18,385,162)"/>
+      <!-- A2: mediana, izquierda baja -->
+      <g transform="translate(32, 138)">
+        <animateTransform attributeName="transform" type="translate"
+          values="32,138; 32,131; 32,138" dur="6.8s" begin="0.8s" repeatCount="indefinite" calcMode="spline"
+          keySplines="0.45 0.05 0.55 0.95; 0.45 0.05 0.55 0.95"/>
+        <circle cx="0" cy="-9" r="7.5" fill="#F5C8D8"/>
+        <circle cx="9" cy="-2.8" r="7.5" fill="#F2C0D0"/>
+        <circle cx="5.6" cy="7.6" r="7.5" fill="#F5C8D8"/>
+        <circle cx="-5.6" cy="7.6" r="7.5" fill="#F2C0D0"/>
+        <circle cx="-9" cy="-2.8" r="7.5" fill="#F5C8D8"/>
+        <circle cx="0" cy="0" r="4.6" fill="#D87898"/>
       </g>
 
-      <!-- ═══ MIMOSA — DERECHA ═══ -->
-      <g class="g-branch-r">
-        <!-- tronco: de abajo-derecha hacia arriba-izquierda -->
-        <path d="M680,195 C665,155 645,110 625,65 C610,28 597,10 584,5"
-              fill="none" stroke="#6A6828" stroke-width="2.4" stroke-linecap="round"/>
-        <!-- rama lateral derecha -->
-        <path d="M652,125 C668,117 684,109 696,104"
-              fill="none" stroke="#6A6828" stroke-width="1.7" stroke-linecap="round"/>
-        <!-- rama lateral izquierda -->
-        <path d="M618,65 C602,57 585,49 570,43"
-              fill="none" stroke="#6A6828" stroke-width="1.7" stroke-linecap="round"/>
-        <!-- ramita pequeña -->
-        <path d="M638,98 C626,87 618,76 613,66"
-              fill="none" stroke="#6A6828" stroke-width="1.2" stroke-linecap="round"/>
-
-        <!-- HOJITAS BIPINNADAS DE MIMOSA (pares de óvalos) -->
-        <ellipse cx="608" cy="68"  rx="6"   ry="2.8" fill="#88AA58" opacity=".65" transform="rotate(35,608,68)"/>
-        <ellipse cx="576" cy="46"  rx="6.5" ry="2.8" fill="#88AA58" opacity=".65" transform="rotate(35,576,46)"/>
-        <ellipse cx="562" cy="38"  rx="5.5" ry="2.5" fill="#88AA58" opacity=".6"  transform="rotate(30,562,38)"/>
-        <ellipse cx="698" cy="106" rx="5.5" ry="2.5" fill="#88AA58" opacity=".6"  transform="rotate(-20,698,106)"/>
-        <ellipse cx="690" cy="115" rx="6"   ry="2.8" fill="#88AA58" opacity=".55" transform="rotate(-25,690,115)"/>
-        <ellipse cx="630" cy="145" rx="6"   ry="2.8" fill="#88AA58" opacity=".55" transform="rotate(18,630,145)"/>
-
-        <!-- POMPÓN 1 — rama lateral izquierda -->
-        <g class="m1" transform="translate(572,34)">
-          <circle cx="0"  cy="0"   r="6.5"  fill="#F0C030"/>
-          <circle cx="8"  cy="-3"  r="6"    fill="#E8B820"/>
-          <circle cx="5"  cy="8"   r="6"    fill="#F5CA48"/>
-          <circle cx="-6" cy="6"   r="5.5"  fill="#F0C030"/>
-          <circle cx="-8" cy="-4"  r="5.5"  fill="#E8B820"/>
-          <circle cx="2"  cy="-9"  r="5"    fill="#F5CA48"/>
-          <!-- textura peluda exterior -->
-          <circle cx="12" cy="2"   r="4"    fill="#EAB818" opacity=".75"/>
-          <circle cx="8"  cy="12"  r="4"    fill="#EAB818" opacity=".75"/>
-          <circle cx="-10" cy="9"  r="3.5"  fill="#EAB818" opacity=".7"/>
-          <circle cx="-12" cy="-7" r="3.5"  fill="#EAB818" opacity=".7"/>
-          <circle cx="0"  cy="-13" r="3.5"  fill="#EAB818" opacity=".7"/>
-        </g>
-
-        <!-- POMPÓN 2 — rama lateral derecha -->
-        <g class="m2" transform="translate(697,96)">
-          <circle cx="0"  cy="0"  r="5.5"  fill="#F5CA48"/>
-          <circle cx="7"  cy="-2" r="5"    fill="#F0C030"/>
-          <circle cx="4"  cy="7"  r="5"    fill="#E8B820"/>
-          <circle cx="-5" cy="5"  r="4.5"  fill="#F5CA48"/>
-          <circle cx="-6" cy="-4" r="4.5"  fill="#F0C030"/>
-          <circle cx="10" cy="3"  r="3.5"  fill="#EAB818" opacity=".75"/>
-          <circle cx="-9" cy="8"  r="3.5"  fill="#EAB818" opacity=".75"/>
-        </g>
-
-        <!-- POMPÓN 3 — tronco medio -->
-        <g class="m3" transform="translate(628,56)">
-          <circle cx="0"  cy="0"  r="5.5"  fill="#F0C030"/>
-          <circle cx="7"  cy="-2" r="5"    fill="#E8B820"/>
-          <circle cx="3"  cy="7"  r="5"    fill="#F5CA48"/>
-          <circle cx="-5" cy="5"  r="4.5"  fill="#F0C030"/>
-          <circle cx="-6" cy="-4" r="4.5"  fill="#E8B820"/>
-          <circle cx="9"  cy="4"  r="3"    fill="#EAB818" opacity=".72"/>
-        </g>
-
-        <!-- POMPÓN 4 — tronco bajo -->
-        <g class="m4" transform="translate(648,110)">
-          <circle cx="0"  cy="0"  r="5"    fill="#F5CA48"/>
-          <circle cx="6"  cy="-2" r="4.5"  fill="#F0C030"/>
-          <circle cx="3"  cy="6"  r="4.5"  fill="#E8B820"/>
-          <circle cx="-4" cy="4"  r="4"    fill="#F5CA48"/>
-          <circle cx="-5" cy="-3" r="4"    fill="#F0C030"/>
-        </g>
-
-        <!-- Capullos de mimosa (verde-amarillo sin abrir) -->
-        <circle cx="616" cy="78"  r="3.5" fill="#B8C838" opacity=".7"/>
-        <circle cx="611" cy="70"  r="3"   fill="#C8D840" opacity=".65"/>
-        <circle cx="585" cy="12"  r="3.5" fill="#C8D840" opacity=".6"/>
+      <!-- A3: pequeña, izq muy lateral -->
+      <g transform="translate(118, 105)">
+        <animateTransform attributeName="transform" type="translate"
+          values="118,105; 118,99; 118,105" dur="7.4s" begin="1.4s" repeatCount="indefinite" calcMode="spline"
+          keySplines="0.45 0.05 0.55 0.95; 0.45 0.05 0.55 0.95"/>
+        <circle cx="0" cy="-7.5" r="6.2" fill="#FACCDB" opacity=".9"/>
+        <circle cx="7.1" cy="-2.3" r="6.2" fill="#F8C4D4" opacity=".9"/>
+        <circle cx="4.4" cy="6.3" r="6.2" fill="#FACCDB" opacity=".9"/>
+        <circle cx="-4.4" cy="6.3" r="6.2" fill="#F8C4D4" opacity=".9"/>
+        <circle cx="-7.1" cy="-2.3" r="6.2" fill="#FACCDB" opacity=".9"/>
+        <circle cx="0" cy="0" r="3.8" fill="#D07090" opacity=".9"/>
       </g>
+
+      <!-- A4: grande, centro-izquierda -->
+      <g transform="translate(242, 74)">
+        <animateTransform attributeName="transform" type="translate"
+          values="242,74; 242,67; 242,74" dur="5.8s" begin="0.3s" repeatCount="indefinite" calcMode="spline"
+          keySplines="0.45 0.05 0.55 0.95; 0.45 0.05 0.55 0.95"/>
+        <circle cx="0" cy="-11" r="9" fill="#EEB8C8"/>
+        <circle cx="10.5" cy="-3.4" r="9" fill="#EAB0C0"/>
+        <circle cx="6.5" cy="8.9" r="9" fill="#EEB8C8"/>
+        <circle cx="-6.5" cy="8.9" r="9" fill="#EAB0C0"/>
+        <circle cx="-10.5" cy="-3.4" r="9" fill="#EEB8C8"/>
+        <circle cx="0" cy="0" r="5.5" fill="#C86888"/>
+        <circle cx="0" cy="0" r="2.2" fill="#A84860"/>
+        <line x1="0" y1="-5" x2="0" y2="-13" stroke="#A84860" stroke-width="1.1"/>
+        <circle cx="0" cy="-14" r="2" fill="#A84860"/>
+      </g>
+
+      <!-- A5: mediana, centro-izquierda baja -->
+      <g transform="translate(192, 152)">
+        <animateTransform attributeName="transform" type="translate"
+          values="192,152; 192,146; 192,152" dur="6.1s" begin="2.1s" repeatCount="indefinite" calcMode="spline"
+          keySplines="0.45 0.05 0.55 0.95; 0.45 0.05 0.55 0.95"/>
+        <circle cx="0" cy="-8.5" r="7" fill="#F5C8D8" opacity=".88"/>
+        <circle cx="8.1" cy="-2.6" r="7" fill="#F0B8C8" opacity=".88"/>
+        <circle cx="5" cy="6.9" r="7" fill="#F5C8D8" opacity=".88"/>
+        <circle cx="-5" cy="6.9" r="7" fill="#F0B8C8" opacity=".88"/>
+        <circle cx="-8.1" cy="-2.6" r="7" fill="#F5C8D8" opacity=".88"/>
+        <circle cx="0" cy="0" r="4.2" fill="#D87898" opacity=".88"/>
+      </g>
+
+      <!-- A6: grande, centro exacto -->
+      <g transform="translate(450, 58)">
+        <animateTransform attributeName="transform" type="translate"
+          values="450,58; 450,50; 450,58" dur="4.9s" begin="0.6s" repeatCount="indefinite" calcMode="spline"
+          keySplines="0.45 0.05 0.55 0.95; 0.45 0.05 0.55 0.95"/>
+        <circle cx="0" cy="-12" r="10" fill="#EAB0C8"/>
+        <circle cx="11.8" cy="-3.7" r="10" fill="#E8A8C0"/>
+        <circle cx="7.3" cy="9.7" r="10" fill="#EAB0C8"/>
+        <circle cx="-7.3" cy="9.7" r="10" fill="#E8A8C0"/>
+        <circle cx="-11.8" cy="-3.7" r="10" fill="#EAB0C8"/>
+        <circle cx="0" cy="0" r="6.2" fill="#D07090"/>
+        <circle cx="0" cy="0" r="2.5" fill="#A84860"/>
+        <line x1="0" y1="-6" x2="0" y2="-15" stroke="#A84860" stroke-width="1.2"/>
+        <circle cx="0" cy="-16" r="2.2" fill="#A84860"/>
+        <line x1="5" y1="-4" x2="13" y2="-11" stroke="#A84860" stroke-width="1.2"/>
+        <circle cx="13.5" cy="-11.5" r="2.2" fill="#A84860"/>
+        <line x1="-5" y1="-4" x2="-13" y2="-11" stroke="#A84860" stroke-width="1.2"/>
+        <circle cx="-13.5" cy="-11.5" r="2.2" fill="#A84860"/>
+      </g>
+
+      <!-- A7: pequeña, centro alta -->
+      <g transform="translate(398, 30)">
+        <animateTransform attributeName="transform" type="translate"
+          values="398,30; 398,24; 398,30" dur="7.7s" begin="1.8s" repeatCount="indefinite" calcMode="spline"
+          keySplines="0.45 0.05 0.55 0.95; 0.45 0.05 0.55 0.95"/>
+        <circle cx="0" cy="-6.5" r="5.5" fill="#F0C0D0" opacity=".85"/>
+        <circle cx="6.2" cy="-2" r="5.5" fill="#EDB8C8" opacity=".85"/>
+        <circle cx="3.8" cy="5.3" r="5.5" fill="#F0C0D0" opacity=".85"/>
+        <circle cx="-3.8" cy="5.3" r="5.5" fill="#EDB8C8" opacity=".85"/>
+        <circle cx="-6.2" cy="-2" r="5.5" fill="#F0C0D0" opacity=".85"/>
+        <circle cx="0" cy="0" r="3.4" fill="#D07090" opacity=".85"/>
+      </g>
+
+      <!-- A8: mediana, centro-derecha -->
+      <g transform="translate(560, 88)">
+        <animateTransform attributeName="transform" type="translate"
+          values="560,88; 560,81; 560,88" dur="6.5s" begin="1.1s" repeatCount="indefinite" calcMode="spline"
+          keySplines="0.45 0.05 0.55 0.95; 0.45 0.05 0.55 0.95"/>
+        <circle cx="0" cy="-9" r="7.5" fill="#EEB8C8"/>
+        <circle cx="8.8" cy="-2.8" r="7.5" fill="#E8B0C0"/>
+        <circle cx="5.5" cy="7.3" r="7.5" fill="#EEB8C8"/>
+        <circle cx="-5.5" cy="7.3" r="7.5" fill="#E8B0C0"/>
+        <circle cx="-8.8" cy="-2.8" r="7.5" fill="#EEB8C8"/>
+        <circle cx="0" cy="0" r="4.6" fill="#C86888"/>
+      </g>
+
+      <!-- A9: pequeña, centro-derecha alta -->
+      <g transform="translate(640, 42)">
+        <animateTransform attributeName="transform" type="translate"
+          values="640,42; 640,36; 640,42" dur="8.2s" begin="2.4s" repeatCount="indefinite" calcMode="spline"
+          keySplines="0.45 0.05 0.55 0.95; 0.45 0.05 0.55 0.95"/>
+        <circle cx="0" cy="-7" r="6" fill="#F5D8E8" opacity=".82"/>
+        <circle cx="7.2" cy="-2.2" r="6" fill="#F2D0E0" opacity=".82"/>
+        <circle cx="4.4" cy="5.8" r="6" fill="#F5D8E8" opacity=".82"/>
+        <circle cx="-4.4" cy="5.8" r="6" fill="#F2D0E0" opacity=".82"/>
+        <circle cx="-7.2" cy="-2.2" r="6" fill="#F5D8E8" opacity=".82"/>
+        <circle cx="0" cy="0" r="3.7" fill="#D07090" opacity=".82"/>
+      </g>
+
+      <!-- A10: grande, derecha -->
+      <g transform="translate(730, 72)">
+        <animateTransform attributeName="transform" type="translate"
+          values="730,72; 730,65; 730,72" dur="5.5s" begin="0.5s" repeatCount="indefinite" calcMode="spline"
+          keySplines="0.45 0.05 0.55 0.95; 0.45 0.05 0.55 0.95"/>
+        <circle cx="0" cy="-11" r="9" fill="#F0B8C8"/>
+        <circle cx="10.5" cy="-3.4" r="9" fill="#EEB0C0"/>
+        <circle cx="6.5" cy="8.9" r="9" fill="#F0B8C8"/>
+        <circle cx="-6.5" cy="8.9" r="9" fill="#EEB0C0"/>
+        <circle cx="-10.5" cy="-3.4" r="9" fill="#F0B8C8"/>
+        <circle cx="0" cy="0" r="5.5" fill="#D07090"/>
+        <circle cx="0" cy="0" r="2.2" fill="#B85070"/>
+        <line x1="0" y1="-5.5" x2="0" y2="-14" stroke="#B85070" stroke-width="1.1"/>
+        <circle cx="0" cy="-15" r="2" fill="#B85070"/>
+      </g>
+
+      <!-- A11: mediana, derecha baja -->
+      <g transform="translate(800, 140)">
+        <animateTransform attributeName="transform" type="translate"
+          values="800,140; 800,133; 800,140" dur="7.1s" begin="1.7s" repeatCount="indefinite" calcMode="spline"
+          keySplines="0.45 0.05 0.55 0.95; 0.45 0.05 0.55 0.95"/>
+        <circle cx="0" cy="-8.5" r="7.2" fill="#F5C8D8" opacity=".9"/>
+        <circle cx="8.6" cy="-2.6" r="7.2" fill="#F2C0D0" opacity=".9"/>
+        <circle cx="5.3" cy="7" r="7.2" fill="#F5C8D8" opacity=".9"/>
+        <circle cx="-5.3" cy="7" r="7.2" fill="#F2C0D0" opacity=".9"/>
+        <circle cx="-8.6" cy="-2.6" r="7.2" fill="#F5C8D8" opacity=".9"/>
+        <circle cx="0" cy="0" r="4.4" fill="#D87898" opacity=".9"/>
+      </g>
+
+      <!-- A12: pequeña, extremo derecho -->
+      <g transform="translate(872, 100)">
+        <animateTransform attributeName="transform" type="translate"
+          values="872,100; 872,93; 872,100" dur="6.3s" begin="0.9s" repeatCount="indefinite" calcMode="spline"
+          keySplines="0.45 0.05 0.55 0.95; 0.45 0.05 0.55 0.95"/>
+        <circle cx="0" cy="-6.5" r="5.5" fill="#FACCDB" opacity=".8"/>
+        <circle cx="6.2" cy="-2" r="5.5" fill="#F8C4D4" opacity=".8"/>
+        <circle cx="3.8" cy="5.3" r="5.5" fill="#FACCDB" opacity=".8"/>
+        <circle cx="-3.8" cy="5.3" r="5.5" fill="#F8C4D4" opacity=".8"/>
+        <circle cx="-6.2" cy="-2" r="5.5" fill="#FACCDB" opacity=".8"/>
+        <circle cx="0" cy="0" r="3.4" fill="#D07090" opacity=".8"/>
+      </g>
+
+      <!-- CAPULLOS de almendro dispersos -->
+      <ellipse cx="148" cy="82" rx="5" ry="8" fill="#F5C8D8" opacity=".65" transform="rotate(-20,148,82)">
+        <animateTransform attributeName="transform" type="translate"
+          values="0,0; 0,-5; 0,0" dur="6s" begin="0.5s" repeatCount="indefinite" additive="sum"/>
+      </ellipse>
+      <ellipse cx="320" cy="48" rx="4.5" ry="7.5" fill="#F5C8D8" opacity=".6" transform="rotate(-35,320,48)">
+        <animateTransform attributeName="transform" type="translate"
+          values="0,0; 0,-6; 0,0" dur="7s" begin="1.3s" repeatCount="indefinite" additive="sum"/>
+      </ellipse>
+      <ellipse cx="510" cy="138" rx="4" ry="7" fill="#F0C0D0" opacity=".55" transform="rotate(15,510,138)">
+        <animateTransform attributeName="transform" type="translate"
+          values="0,0; 0,-5; 0,0" dur="5.5s" begin="2.2s" repeatCount="indefinite" additive="sum"/>
+      </ellipse>
+      <ellipse cx="680" cy="116" rx="4.5" ry="7.5" fill="#F5C8D8" opacity=".6" transform="rotate(-10,680,116)">
+        <animateTransform attributeName="transform" type="translate"
+          values="0,0; 0,-6; 0,0" dur="7.8s" begin="0.7s" repeatCount="indefinite" additive="sum"/>
+      </ellipse>
+
+      <!-- POMPONES DE MIMOSA — amarillo cálido -->
+
+      <!-- M1: grande, izquierda alta -->
+      <g transform="translate(158, 48)">
+        <animateTransform attributeName="transform" type="translate"
+          values="158,48; 158,40; 158,48" dur="3.8s" begin="0s" repeatCount="indefinite" calcMode="spline"
+          keySplines="0.45 0.05 0.55 0.95; 0.45 0.05 0.55 0.95"/>
+        <circle cx="0" cy="0" r="8" fill="#F0C030"/>
+        <circle cx="10" cy="-4" r="7.5" fill="#E8B820"/>
+        <circle cx="6" cy="11" r="7.5" fill="#F5CA48"/>
+        <circle cx="-9" cy="8" r="7" fill="#F0C030"/>
+        <circle cx="-10" cy="-5" r="7" fill="#E8B820"/>
+        <circle cx="2" cy="-12" r="6.5" fill="#F5CA48"/>
+        <circle cx="15" cy="3" r="5.5" fill="#EAB818" opacity=".78"/>
+        <circle cx="9" cy="16" r="5" fill="#EAB818" opacity=".75"/>
+        <circle cx="-14" cy="12" r="5" fill="#EAB818" opacity=".72"/>
+        <circle cx="-15" cy="-9" r="4.5" fill="#EAB818" opacity=".68"/>
+        <circle cx="0" cy="-17" r="4.5" fill="#EAB818" opacity=".68"/>
+      </g>
+
+      <!-- M2: mediano, izq-centro -->
+      <g transform="translate(296, 130)">
+        <animateTransform attributeName="transform" type="translate"
+          values="296,130; 296,123; 296,130" dur="4.4s" begin="0.6s" repeatCount="indefinite" calcMode="spline"
+          keySplines="0.45 0.05 0.55 0.95; 0.45 0.05 0.55 0.95"/>
+        <circle cx="0" cy="0" r="7" fill="#F5CA48"/>
+        <circle cx="8.8" cy="-3.5" r="6.5" fill="#F0C030"/>
+        <circle cx="5" cy="9.5" r="6.5" fill="#E8B820"/>
+        <circle cx="-7.5" cy="7" r="6" fill="#F5CA48"/>
+        <circle cx="-8.8" cy="-4" r="6" fill="#F0C030"/>
+        <circle cx="13" cy="3" r="4.5" fill="#EAB818" opacity=".72"/>
+        <circle cx="-12" cy="11" r="4.5" fill="#EAB818" opacity=".7"/>
+      </g>
+
+      <!-- M3: grande, centro -->
+      <g transform="translate(450, 148)">
+        <animateTransform attributeName="transform" type="translate"
+          values="450,148; 450,140; 450,148" dur="3.5s" begin="1.2s" repeatCount="indefinite" calcMode="spline"
+          keySplines="0.45 0.05 0.55 0.95; 0.45 0.05 0.55 0.95"/>
+        <circle cx="0" cy="0" r="7.5" fill="#F0C030"/>
+        <circle cx="9.5" cy="-3.5" r="7" fill="#E8B820"/>
+        <circle cx="5.5" cy="10" r="7" fill="#F5CA48"/>
+        <circle cx="-8.5" cy="7.5" r="6.5" fill="#F0C030"/>
+        <circle cx="-9.5" cy="-4.5" r="6.5" fill="#E8B820"/>
+        <circle cx="14" cy="4" r="5" fill="#EAB818" opacity=".75"/>
+        <circle cx="-13" cy="12" r="5" fill="#EAB818" opacity=".72"/>
+        <circle cx="0" cy="-15" r="4.5" fill="#EAB818" opacity=".7"/>
+      </g>
+
+      <!-- M4: mediano, centro-derecha -->
+      <g transform="translate(614, 56)">
+        <animateTransform attributeName="transform" type="translate"
+          values="614,56; 614,49; 614,56" dur="4.9s" begin="0.4s" repeatCount="indefinite" calcMode="spline"
+          keySplines="0.45 0.05 0.55 0.95; 0.45 0.05 0.55 0.95"/>
+        <circle cx="0" cy="0" r="7" fill="#F5CA48" opacity=".88"/>
+        <circle cx="8.8" cy="-3" r="6.5" fill="#F0C030" opacity=".88"/>
+        <circle cx="5" cy="9.5" r="6.5" fill="#E8B820" opacity=".88"/>
+        <circle cx="-7.5" cy="7" r="6" fill="#F5CA48" opacity=".88"/>
+        <circle cx="-8" cy="-4" r="6" fill="#F0C030" opacity=".88"/>
+        <circle cx="12" cy="4" r="4.5" fill="#EAB818" opacity=".68"/>
+      </g>
+
+      <!-- M5: grande, derecha -->
+      <g transform="translate(762, 36)">
+        <animateTransform attributeName="transform" type="translate"
+          values="762,36; 762,28; 762,36" dur="4.1s" begin="1.8s" repeatCount="indefinite" calcMode="spline"
+          keySplines="0.45 0.05 0.55 0.95; 0.45 0.05 0.55 0.95"/>
+        <circle cx="0" cy="0" r="8" fill="#F0C030"/>
+        <circle cx="10" cy="-4" r="7.5" fill="#E8B820"/>
+        <circle cx="6" cy="11" r="7.5" fill="#F5CA48"/>
+        <circle cx="-9" cy="8" r="7" fill="#F0C030"/>
+        <circle cx="-10" cy="-5" r="7" fill="#E8B820"/>
+        <circle cx="2" cy="-12" r="6.5" fill="#F5CA48"/>
+        <circle cx="15" cy="3" r="5.5" fill="#EAB818" opacity=".78"/>
+        <circle cx="-14" cy="12" r="5" fill="#EAB818" opacity=".72"/>
+      </g>
+
+      <!-- M6: pequeño, derecha baja -->
+      <g transform="translate(848, 162)">
+        <animateTransform attributeName="transform" type="translate"
+          values="848,162; 848,155; 848,162" dur="5.7s" begin="2.6s" repeatCount="indefinite" calcMode="spline"
+          keySplines="0.45 0.05 0.55 0.95; 0.45 0.05 0.55 0.95"/>
+        <circle cx="0" cy="0" r="6" fill="#F5CA48" opacity=".82"/>
+        <circle cx="7.5" cy="-3" r="5.5" fill="#F0C030" opacity=".82"/>
+        <circle cx="4" cy="8" r="5.5" fill="#E8B820" opacity=".82"/>
+        <circle cx="-6.5" cy="6" r="5" fill="#F5CA48" opacity=".82"/>
+        <circle cx="-7" cy="-3.5" r="5" fill="#F0C030" opacity=".82"/>
+        <circle cx="11" cy="3" r="4" fill="#EAB818" opacity=".62"/>
+      </g>
+
+      <!-- M7: pequeño, extremo izq baja -->
+      <g transform="translate(22, 168)">
+        <animateTransform attributeName="transform" type="translate"
+          values="22,168; 22,162; 22,168" dur="6.6s" begin="1.0s" repeatCount="indefinite" calcMode="spline"
+          keySplines="0.45 0.05 0.55 0.95; 0.45 0.05 0.55 0.95"/>
+        <circle cx="0" cy="0" r="6" fill="#F0C030" opacity=".8"/>
+        <circle cx="7.5" cy="-3" r="5.5" fill="#E8B820" opacity=".8"/>
+        <circle cx="4" cy="8" r="5.5" fill="#F5CA48" opacity=".8"/>
+        <circle cx="-6.5" cy="6" r="5" fill="#F0C030" opacity=".8"/>
+        <circle cx="-7" cy="-3.5" r="5" fill="#E8B820" opacity=".8"/>
+      </g>
+
+      <!-- Cadena de ganchillo central fija (no anima) -->
+      <ellipse cx="368" cy="175" rx="11" ry="6.5" fill="none" stroke="var(--a-border)" stroke-width="2" opacity=".65"/>
+      <ellipse cx="392" cy="175" rx="11" ry="6.5" fill="none" stroke="var(--b-border)" stroke-width="2" opacity=".65"/>
+      <ellipse cx="416" cy="175" rx="11" ry="6.5" fill="none" stroke="var(--c-border)" stroke-width="2" opacity=".65"/>
+      <ellipse cx="440" cy="175" rx="11" ry="6.5" fill="none" stroke="var(--d-border)" stroke-width="2" opacity=".65"/>
+      <ellipse cx="464" cy="175" rx="11" ry="6.5" fill="none" stroke="var(--rose-d)"   stroke-width="2" opacity=".6"/>
 
     </svg>
-
   </div>
   <div class="hero-wave">
     <svg viewBox="0 0 1440 68" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -558,7 +633,7 @@ body { padding-top: 64px; }
 </svg>
 
 <!-- SOBRE ELENA Y MAYTE -->
-<section class="about-elena">
+<section class="about-elena" id="artesanas">
   <div class="about-elena-bg"></div>
   <div class="container--narrow" style="position:relative;z-index:1;">
     <div class="elena-grid">
@@ -646,7 +721,7 @@ body { padding-top: 64px; }
     </div>
 
     <!-- CONTACTO -->
-    <div class="contact-box">
+    <div class="contact-box" id="contacto">
       <div class="section-label" style="color:var(--rose-d);margin-bottom:.8rem;">¿Quieres llevar la exposición a tu centro?</div>
       <p style="color:var(--text-m);font-size:1rem;line-height:1.7;margin-bottom:1.4rem;">Si te interesa que <strong>Mujeres que cambian la historia</strong> visite tu instituto, centro cultural o espacio, no dudes en ponerte en contacto con nosotras.</p>
       <div class="contact-links">
