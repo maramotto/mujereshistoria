@@ -3,7 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cuestionario · Mujeres Que Cambian La Historia</title>
+
+<!-- ── SEO base (JS sobrescribe title y canonical por nivel) ── -->
+<title>Respuestas Cuestionario · Mujeres Que Cambian La Historia</title>
+<meta name="description" content="Consulta las respuestas correctas del cuestionario de la exposición Mujeres Que Cambian La Historia, de Diseños ELEMA.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://elema.es/nivel.html" id="canonical">
+
+<!-- ── Open Graph ── -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://elema.es/" id="og-url">
+<meta property="og:title" content="Respuestas · Mujeres Que Cambian La Historia">
+<meta property="og:description" content="Consulta las respuestas correctas del cuestionario de la exposición de amigurumis Mujeres Que Cambian La Historia.">
+<meta property="og:image" content="https://elema.es/img/logo_elema.jpg">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Diseños ELEMA">
+
+<!-- ── Twitter Card ── -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Respuestas · Mujeres Que Cambian La Historia">
+<meta name="twitter:image" content="https://elema.es/img/logo_elema.jpg">
 <link rel="stylesheet" href="css/styles.css">
 <style>
 body { padding-top: 62px; }
@@ -194,7 +213,13 @@ document.addEventListener('click', function(e){
   `;
   document.head.appendChild(s);
 
-  document.title = `Nivel ${meta.name} · Mujeres Que Cambian La Historia`;
+  document.title = `Nivel ${meta.name} · Mujeres Que Cambian La Historia · Diseños ELEMA`;
+  // Update canonical and og:url per level
+  const canonEl = document.getElementById('canonical');
+  const ogUrlEl = document.getElementById('og-url');
+  const levelUrl = `https://elema.es/nivel.html?level=${levelId}`;
+  if (canonEl) canonEl.setAttribute('href', levelUrl);
+  if (ogUrlEl) ogUrlEl.setAttribute('content', levelUrl);
 
   /* Icono del nivel */
   function levelIcon(lv, size=72){
