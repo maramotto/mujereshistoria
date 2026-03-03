@@ -48,9 +48,9 @@ body { padding-top: 64px; }
 
 /* Título: MUJERES morado / resto texto oscuro / HISTORIA naranja */
 .hero h1 {
-  font-family: 'Syne', sans-serif; font-weight: 800;
-  font-size: clamp(2.6rem, 8vw, 5.8rem);
-  line-height: 1.0; letter-spacing: -.028em;
+  font-family: 'Rouge Script', cursive; font-weight: 400;
+  font-size: clamp(3.8rem, 11vw, 8.5rem);
+  line-height: 1.05; letter-spacing: .01em;
   margin-bottom: 1rem;
   animation: fadeUp .6s .1s ease both;
 }
@@ -122,7 +122,7 @@ body { padding-top: 64px; }
 @media(max-width:720px){ .about-grid{ grid-template-columns:1fr; gap:2rem; } }
 
 .about-text h2 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-size: clamp(1.8rem,4vw,2.8rem); font-weight:800;
   letter-spacing:-.025em; line-height:1.1; margin-bottom:1.25rem; color:var(--dark);
 }
@@ -171,17 +171,37 @@ body { padding-top: 64px; }
 @media(max-width:640px){ .elena-grid{ grid-template-columns:1fr; gap:2rem; } }
 .elena-content .section-label { color:var(--rose-d); }
 .elena-content h2 {
-  font-family:'Syne',sans-serif; font-size:clamp(1.8rem,4vw,2.6rem);
+  font-family:'Playfair Display',serif; font-size:clamp(1.8rem,4vw,2.6rem);
   font-weight:800; letter-spacing:-.025em; color:var(--dark); margin-bottom:1.2rem; line-height:1.1;
 }
-.elena-content p { color:var(--text-m); line-height:1.78; font-size:.97rem; margin-bottom:.9rem; }
+.elena-content p { color:var(--text-m); line-height:1.78; font-size:1.05rem; margin-bottom:.9rem; }
 .elena-content strong { color:var(--text); }
+.elena-content em { font-style:italic; color:var(--rose-d); }
+
+/* ── CONTACTO ── */
+.contact-box {
+  margin-top:3rem; padding:2rem 2.4rem;
+  background:var(--white); border-radius:20px;
+  border:1.5px solid var(--rose-m);
+  box-shadow:0 4px 24px rgba(42,32,24,.06);
+  position:relative; z-index:1;
+}
+.contact-links { display:flex; gap:1.5rem; flex-wrap:wrap; }
+.contact-item {
+  display:inline-flex; align-items:center; gap:.55rem;
+  font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:600;
+  color:var(--rose-d); padding:.5rem 1.2rem; border-radius:999px;
+  border:1.5px solid var(--rose-m); background:var(--rose-l);
+  transition:background .2s, border-color .2s, color .2s, transform .2s;
+}
+.contact-item:hover { background:var(--rose-d); color:var(--white); border-color:var(--rose-d); transform:translateY(-2px); }
+.contact-item svg { flex-shrink:0; }
 
 /* ── NIVELES ── */
 .levels-section { padding:5rem 1.5rem; }
 .lvl-intro { margin-bottom:2.5rem; }
 .lvl-intro h2 {
-  font-family:'Syne',sans-serif; font-size:clamp(1.8rem,4vw,2.8rem);
+  font-family:'Playfair Display',serif; font-size:clamp(1.8rem,4vw,2.8rem);
   font-weight:800; letter-spacing:-.025em; line-height:1.1;
   color:var(--dark); margin-bottom:.6rem;
 }
@@ -267,7 +287,7 @@ body { padding-top: 64px; }
       <span class="w-historia">Historia</span>
     </h1>
 
-    <p class="hero-sub anim anim-d2">Una exposición tejida a mano que celebra a 34 mujeres extraordinarias que transformaron el mundo.</p>
+    <p class="hero-sub anim anim-d2">Una exposición tejida a mano que celebra a 35 mujeres extraordinarias que transformaron el mundo.</p>
 
     <!--
       SVG BOTÁNICO — ViewBox 0 0 700 200
@@ -514,15 +534,15 @@ body { padding-top: 64px; }
         <h2>Arte, historia y ganchillo en una sola exposición</h2>
         <p>Cada muñeca amigurumi es tejida a mano con dedicación y cariño, representando a una mujer que cambió el mundo con su valentía, ingenio y determinación.</p>
         <p>La exposición recorre siglos de historia, desde la antigua Alejandría hasta nuestros días, con personajes reales y ficticios que han inspirado generaciones enteras.</p>
-        <p><strong>34 personajes, 34 historias, 34 razones para creer en el cambio.</strong></p>
+        <p><strong>35 personajes, 35 historias, 35 razones para creer en el cambio.</strong></p>
       </div>
       <div class="about-card">
         <div class="about-card-inner">
-          <div class="big-num">34</div>
+          <div class="big-num">35</div>
           <div class="big-label">personajes históricos tejidos a mano</div>
           <div class="stat-row">
             <div class="stat"><div class="stat-n">4</div><div class="stat-l">Cuestionarios</div></div>
-            <div class="stat"><div class="stat-n">20</div><div class="stat-l">Preguntas</div></div>
+            <div class="stat"><div class="stat-n">39</div><div class="stat-l">Preguntas</div></div>
             <div class="stat"><div class="stat-n">&#x221E;</div><div class="stat-l">Inspiración</div></div>
           </div>
         </div>
@@ -537,47 +557,110 @@ body { padding-top: 64px; }
   <path d="M0,24 C480,52 960,0 1440,24 L1440,52 L0,52 Z" fill="#FEF2F4"/>
 </svg>
 
-<!-- SOBRE ELENA -->
+<!-- SOBRE ELENA Y MAYTE -->
 <section class="about-elena">
   <div class="about-elena-bg"></div>
   <div class="container--narrow" style="position:relative;z-index:1;">
     <div class="elena-grid">
-      <!-- Avatar ELEMA: blob rosa + ramas tenues -->
-      <div>
-        <svg viewBox="0 0 170 170" xmlns="http://www.w3.org/2000/svg" aria-label="Avatar de Elena Frisuelos">
-          <!-- blob rosa como el logo ELEMA -->
-          <ellipse cx="85" cy="90" rx="78" ry="72" fill="var(--rose-m)" opacity=".55"/>
-          <!-- círculo interior blanco -->
-          <circle cx="85" cy="78" r="55" fill="var(--white)" opacity=".92"/>
-          <!-- silueta persona -->
-          <circle cx="85" cy="58" r="22" fill="var(--rose-m)" opacity=".85"/>
-          <path d="M48,138 Q48,94 85,94 Q122,94 122,138" fill="var(--rose-m)" opacity=".85"/>
-          <!-- ramita fina decorativa (estilo ELEMA) -->
-          <path d="M36,112 C48,96 62,90 72,76" fill="none" stroke="#8C6448" stroke-width="1.4" opacity=".5"/>
-          <!-- flor almendro sobre el avatar -->
-          <g transform="translate(58,73)">
-            <circle cx="0" cy="-5" r="4" fill="#F0B8C8"/><circle cx="4.8" cy="-1.5" r="4" fill="#F0B8C8"/>
-            <circle cx="3" cy="4"  r="4" fill="#F0B8C8"/><circle cx="-3" cy="4"   r="4" fill="#F0B8C8"/>
-            <circle cx="-4.8" cy="-1.5" r="4" fill="#F0B8C8"/>
-            <circle cx="0" cy="0" r="2.5" fill="#D07090"/>
+
+      <!-- Ilustración ganchillo: ovillos y agujas -->
+      <div style="display:flex;align-items:center;justify-content:center;">
+        <svg viewBox="0 0 170 180" xmlns="http://www.w3.org/2000/svg" aria-label="Ilustración de ovillos y agujas de ganchillo" style="width:100%;max-width:170px;">
+          <!-- Blob de fondo suave -->
+          <ellipse cx="85" cy="100" rx="78" ry="72" fill="var(--rose-m)" opacity=".38"/>
+
+          <!-- OVILLO GRANDE — rosa -->
+          <circle cx="68" cy="108" r="42" fill="#F5C4CA" opacity=".92"/>
+          <!-- líneas horizontales del ovillo -->
+          <path d="M30,95  Q68,80  106,96"  fill="none" stroke="#C86878" stroke-width="1.3" opacity=".45"/>
+          <path d="M28,108 Q68,94  108,108" fill="none" stroke="#C86878" stroke-width="1.3" opacity=".45"/>
+          <path d="M30,121 Q68,108 106,122" fill="none" stroke="#C86878" stroke-width="1.3" opacity=".4"/>
+          <!-- elipse central (forma ovillo) -->
+          <ellipse cx="68" cy="108" rx="42" ry="22" fill="none" stroke="#C86878" stroke-width="1.3" opacity=".35"/>
+          <!-- sombra interior suave -->
+          <circle cx="68" cy="108" r="42" fill="url(#ov1shadow)" opacity=".18"/>
+          <defs>
+            <radialGradient id="ov1shadow" cx="60%" cy="40%">
+              <stop offset="0%" stop-color="#fff" stop-opacity=".6"/>
+              <stop offset="100%" stop-color="#C86878" stop-opacity=".5"/>
+            </radialGradient>
+          </defs>
+
+          <!-- OVILLO PEQUEÑO — morado -->
+          <circle cx="120" cy="72" r="26" fill="#C8A8E8" opacity=".88"/>
+          <path d="M97,63  Q120,54 143,65" fill="none" stroke="#8050B8" stroke-width="1.1" opacity=".4"/>
+          <path d="M96,74  Q120,65 144,74" fill="none" stroke="#8050B8" stroke-width="1.1" opacity=".4"/>
+          <ellipse cx="120" cy="72" rx="26" ry="14" fill="none" stroke="#8050B8" stroke-width="1.1" opacity=".3"/>
+
+          <!-- HILO que une ovillos -->
+          <path d="M108,100 Q120,88 130,82 Q136,78 138,72" fill="none" stroke="#D07090" stroke-width="1.6" stroke-linecap="round" opacity=".6"/>
+
+          <!-- AGUJA DE GANCHILLO 1 (rosa, inclinada izquierda) -->
+          <g transform="rotate(-42, 58, 72)">
+            <!-- mango largo -->
+            <rect x="55" y="30" width="6" height="72" rx="3" fill="#A0522D" opacity=".88"/>
+            <!-- zona de agarre (más claro) -->
+            <rect x="55" y="62" width="6" height="18" rx="3" fill="#D07090" opacity=".85"/>
+            <!-- cuello -->
+            <rect x="56.5" y="28" width="3" height="6" rx="1.5" fill="#7A3820" opacity=".9"/>
+            <!-- gancho -->
+            <path d="M58,28 Q51,20 54,13 Q57,7 64,10" fill="none" stroke="#7A3820" stroke-width="3.5" stroke-linecap="round"/>
           </g>
-          <!-- pompón mimosa pequeño -->
-          <g transform="translate(118,85)">
-            <circle cx="0" cy="0" r="5" fill="#F0C030"/><circle cx="6" cy="-2" r="4.5" fill="#E8B820"/>
-            <circle cx="3" cy="6" r="4.5" fill="#F5CA48"/><circle cx="-5" cy="3" r="4" fill="#F0C030"/>
+
+          <!-- AGUJA DE GANCHILLO 2 (verde oliva, inclinada derecha) -->
+          <g transform="rotate(28, 100, 80)">
+            <rect x="97" y="36" width="6" height="68" rx="3" fill="#5C7A28" opacity=".85"/>
+            <rect x="97" y="66" width="6" height="16" rx="3" fill="#F0C030" opacity=".85"/>
+            <rect x="98.5" y="34" width="3" height="6" rx="1.5" fill="#3C5218" opacity=".9"/>
+            <path d="M100,34 Q93,26 96,19 Q99,13 106,16" fill="none" stroke="#3C5218" stroke-width="3.2" stroke-linecap="round"/>
           </g>
-          <!-- pequeña hoja -->
-          <ellipse cx="128" cy="90" rx="5.5" ry="2.5" fill="#7AAA60" opacity=".6" transform="rotate(30,128,90)"/>
+
+          <!-- Cadeneta de ganchillo decorativa (puntos de la cadena) -->
+          <ellipse cx="32"  cy="148" rx="7.5" ry="4.5" fill="none" stroke="var(--a-border)" stroke-width="1.8" opacity=".75"/>
+          <ellipse cx="48"  cy="148" rx="7.5" ry="4.5" fill="none" stroke="var(--b-border)" stroke-width="1.8" opacity=".75"/>
+          <ellipse cx="64"  cy="148" rx="7.5" ry="4.5" fill="none" stroke="var(--c-border)" stroke-width="1.8" opacity=".75"/>
+          <ellipse cx="80"  cy="148" rx="7.5" ry="4.5" fill="none" stroke="var(--d-border)" stroke-width="1.8" opacity=".75"/>
+          <ellipse cx="96"  cy="148" rx="7.5" ry="4.5" fill="none" stroke="var(--rose-d)"   stroke-width="1.8" opacity=".7"/>
+
+          <!-- Florecita decorativa -->
+          <g transform="translate(145,115)">
+            <circle cx="0"    cy="-5"   r="4"   fill="#F0B8C8"/>
+            <circle cx="4.8"  cy="-1.5" r="4"   fill="#F5C8D8"/>
+            <circle cx="3"    cy="4"    r="4"   fill="#F0B8C8"/>
+            <circle cx="-3"   cy="4"    r="4"   fill="#F5C8D8"/>
+            <circle cx="-4.8" cy="-1.5" r="4"   fill="#F0B8C8"/>
+            <circle cx="0"    cy="0"    r="2.5" fill="#D07090"/>
+          </g>
         </svg>
       </div>
+
       <div class="elena-content">
-        <div class="section-label">La Autora</div>
-        <h2>Elena Frisuelos</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam quis nostrud exercitation.</p>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <strong>Cada amigurumi es una historia tejida a mano, con amor y con cariño.</strong></p>
-        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <div class="section-label">Las Artesanas</div>
+        <h2>Elena Frisuelos &amp; Mayte Perni</h2>
+        <p>Somos dos mujeres que, a pesar de sus diferentes profesiones, edad y contexto, han encontrado en el tejido un mundo común donde expresar su creatividad y encontrarse con todos aquellos cuya sensibilidad permita ver más allá de los hilos.</p>
+        <p>El mundo de los amigurumis procede de la cultura japonesa, y surgieron para demostrar cariño y amistad, procurando un sentimiento de protección y consuelo a quien lo recibía.</p>
+        <p>Llevamos más de 10 años perfeccionándola y sirviéndonos de ella para llegar a muchos hogares. <strong>Cada amigurumi es una historia tejida a mano con amor y dedicación.</strong></p>
+        <p>Esta exposición nace del deseo de unir las bondades propias de los amigurumis con la necesidad personal de buscar nuevos caminos para hacer pensar y aprender, para añadir mayor valor a cada experiencia.</p>
+        <p>Con <em>"Mujeres que cambian la historia"</em> intentamos hacer un pequeño homenaje a esas mujeres que fueron silenciadas, que son desconocidas a veces, y en otras ocasiones desposeídas de sus verdaderos valores, porque las mujeres, al igual que los hombres, llevamos desde el principio de la humanidad haciendo historia, a pesar de todo.</p>
       </div>
     </div>
+
+    <!-- CONTACTO -->
+    <div class="contact-box">
+      <div class="section-label" style="color:var(--rose-d);margin-bottom:.8rem;">¿Quieres llevar la exposición a tu centro?</div>
+      <p style="color:var(--text-m);font-size:1rem;line-height:1.7;margin-bottom:1.4rem;">Si te interesa que <strong>Mujeres que cambian la historia</strong> visite tu instituto, centro cultural o espacio, no dudes en ponerte en contacto con nosotras.</p>
+      <div class="contact-links">
+        <a href="tel:617571304" class="contact-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.09 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 5.25 5.25l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          617 571 304
+        </a>
+        <a href="mailto:correoelema@gmail.com" class="contact-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+          correoelema@gmail.com
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -666,7 +749,7 @@ body { padding-top: 64px; }
 </section>
 
 <footer class="footer">
-  <p><strong>Mujeres Que Cambian La Historia</strong> &mdash; Exposición de amigurumis por <strong>Elena Frisuelos · Diseños ELEMA</strong></p>
+  <p><strong>Mujeres Que Cambian La Historia</strong> &mdash; Exposición de amigurumis por <strong>Elena Frisuelos &amp; Mayte Perni · Diseños ELEMA</strong></p>
   <p style="margin-top:.4rem;font-size:.78rem">Las respuestas reflejan los textos de los paneles de la exposición.</p>
   <p style="margin-top:.5rem;font-size:.72rem;opacity:.65">Desarrollo web: <a href="https://maramotto.com" style="color:inherit;text-decoration:underline">maramotto.com</a></p>
 </footer>
