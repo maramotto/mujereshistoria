@@ -5,7 +5,7 @@
  * Para editar preguntas o respuestas, solo toca este archivo.
  *
  * Estructura:
- *   LEVELS  → metadatos de cada nivel (nombre, color, descripción…)
+ *   LEVELS    → metadatos de cada nivel (nombre, color, descripción…)
  *   QUESTIONS → array de preguntas por nivel
  *
  * "correct" es el índice (0-based) de la opción correcta en "opts".
@@ -53,32 +53,58 @@ const QUESTIONS = {
   infantil: [
     {
       persona:  "Varios personajes",
+      q:        "En la exposición hay un cuadro especial sin nombre. ¿A quién crees que representa?",
+      opts:     [
+        "A todas las madres del mundo",
+        "A los hombres que ayudaron a las mujeres",
+        "A ti, a mí, a todas y cada una de las mujeres que cambian su historia cada día",
+        "A las grandes inventoras olvidadas",
+      ],
+      correct:  2,
+    },
+    {
+      persona:  "Varios personajes",
       q:        "¿Cuál de estas mujeres de la exposición es un personaje de un libro y no existió de verdad?",
-      opts:     ["Cleopatra", "Florence Nightingale", "Ana de las Tejas Verdes", "Rosa Parks"],
+      opts:     [
+        "Cleopatra, la reina de Egipto",
+        "Florence Nightingale, la enfermera",
+        "Ana de las Tejas Verdes",
+        "Rosa Parks",
+      ],
       correct:  2,
     },
     {
       persona:  "Varios personajes",
       q:        "En la exposición hay reinas y princesas. ¿Cuántas puedes encontrar?",
-      opts:     ["Una", "Dos", "Tres (Cleopatra, Reina Isabel II y Diana de Gales)", "Cuatro"],
+      opts:     [
+        "Una",
+        "Dos",
+        "Tres (Cleopatra, Reina Isabel II y Diana de Gales)",
+        "Cuatro",
+      ],
       correct:  2,
     },
     {
       persona:  "Florence Nightingale",
-      q:        "Florence visitaba a los enfermos por las noches. ¿Con qué se iluminaba?",
+      q:        "Florence Nightingale, la famosa enfermera, visitaba a los heridos por las noches. ¿Con qué se iluminaba?",
       opts:     ["Una vela", "Un candil", "Una linterna", "Una antorcha"],
       correct:  1,
     },
     {
       persona:  "Serena Williams",
-      q:        "¿Qué deporte convirtió a Serena Williams en una de las mejores del mundo?",
+      q:        "Serena Williams es una de las mejores deportistas del mundo. ¿En qué deporte?",
       opts:     ["Fútbol", "Natación", "Tenis", "Gimnasia"],
       correct:  2,
     },
     {
       persona:  "Rosa Parks",
       q:        "Rosa Parks hizo algo muy valiente en un autobús. ¿Qué hizo?",
-      opts:     ["Se puso a cantar", "Se negó a ceder su asiento", "Condujo el autobús", "Se bajó sin pagar"],
+      opts:     [
+        "Se puso a cantar",
+        "Se negó a ceder su asiento",
+        "Condujo el autobús",
+        "Se bajó sin pagar",
+      ],
       correct:  1,
     },
   ],
@@ -87,13 +113,30 @@ const QUESTIONS = {
   juvenil: [
     {
       persona:  "Varios personajes",
-      q:        "Dos mujeres de la exposición ganaron el Premio Nobel. ¿Quiénes son?",
+      q:        "En la exposición hay un cuadro especial sin título. ¿A quién representa?",
       opts:     [
-        "Frida Kahlo y Rosa Parks",
-        "Diana de Gales y Simone de Beauvoir",
-        "Marie Curie y Wangari Maathai",
-        "Amelia Earhart e Hipatia",
+        "A todas las madres",
+        "A los hombres",
+        "A ti, a mí, a todas y cada una de las mujeres que cambiamos nuestra historia día a día",
+        "A las grandes inventoras olvidadas en los libros de historia",
       ],
+      correct:  2,
+    },
+    {
+      persona:  "Varios personajes",
+      q:        "Cuatro mujeres de la exposición han ganado el Premio Nobel. ¿Cuáles son?",
+      opts:     [
+        "Frida Kahlo, Rosa Parks, Simone de Beauvoir y Amelia Earhart",
+        "Diana de Gales, Simone de Beauvoir, Marie Curie e Hipatia",
+        "Marie Curie, Wangari Maathai, Teresa de Calcuta y Malala Yousafzai",
+        "Amelia Earhart, Hipatia, Gloria Fuertes y Serena Williams",
+      ],
+      correct:  2,
+    },
+    {
+      persona:  "Juana de Arco",
+      q:        "¿Qué edad tenía Juana de Arco cuando se convirtió en capitana de los ejércitos franceses?",
+      opts:     ["25 años", "47 años", "17 años", "19 años"],
       correct:  2,
     },
     {
@@ -114,8 +157,69 @@ const QUESTIONS = {
       correct:  2,
     },
     {
+      persona:  "Concepción Arenal",
+      q:        "¿Cuál fue la primera mujer en acudir a la universidad en España, disfrazada de hombre, para que no la expulsaran?",
+      opts:     [
+        "Dolors Aleu i Riera",
+        "Gloria Fuertes",
+        "Carmen Barrero",
+        "Concepción Arenal",
+      ],
+      correct:  3,
+    },
+    {
+      persona:  "Las 13 Rosas",
+      q:        "¿Existieron en la realidad las 13 Rosas?",
+      opts:     [
+        "No hay datos históricos determinantes",
+        "No, fue un símbolo imaginario de la represión franquista sobre las mujeres",
+        "Son solo las protagonistas ficticias de una película de 2007",
+        "Sí, incluso se habla de que en realidad fueron 14 las mujeres fusiladas",
+      ],
+      correct:  3,
+    },
+    {
+      persona:  "Catalina II de Rusia",
+      q:        "Catalina II de Rusia destacó durante su reinado por…",
+      opts:     [
+        "Por su belleza",
+        "Por su altura, era una mujer de más de 2 metros",
+        "Modernizar y convertir a Rusia en una superpotencia del siglo XIX",
+        "Por haber asesinado a su marido",
+      ],
+      correct:  2,
+    },
+    {
+      persona:  "Madres de la Plaza de Mayo",
+      q:        "Las Madres de la Plaza de Mayo son una asociación de…",
+      opts:     ["Brasil", "Argentina", "España", "Estados Unidos"],
+      correct:  1,
+    },
+    {
+      persona:  "Jane Austen",
+      q:        "Elizabeth Bennet es la protagonista de Orgullo y Prejuicio. ¿Quién escribió este libro?",
+      opts:     [
+        "Gloria Fuertes",
+        "Mary Shelley",
+        "Jane Austen",
+        "Simone de Beauvoir",
+      ],
+      correct:  2,
+    },
+    {
+      persona:  "Malala Yousafzai",
+      q:        "La mujer más joven en recibir un Premio Nobel, con apenas 17 años, ha sido…",
+      opts:     [
+        "Esther Duflo, Premio Nobel de Economía",
+        "Marie Curie, Premio Nobel de Química",
+        "Greta Thunberg, activista medioambiental",
+        "Malala Yousafzai, Premio Nobel de la Paz",
+      ],
+      correct:  3,
+    },
+    {
       persona:  "Gloria Fuertes · Ana de las Tejas Verdes",
-      q:        "Gloria Fuertes y Ana de las Tejas Verdes tienen algo en común. ¿Qué es?",
+      q:        "Gloria Fuertes y Ana de las Tejas Verdes (personaje creado por Lucy Maud Montgomery) tienen algo en común. ¿Qué es?",
       opts:     [
         "Ambas son pintoras",
         "Ambas escribieron especialmente para el público infantil y juvenil",
@@ -125,7 +229,7 @@ const QUESTIONS = {
       correct:  1,
     },
     {
-      persona:  "Emmiline Pankhurst",
+      persona:  "Emmeline Pankhurst",
       q:        "Pankhurst luchó toda su vida por el derecho al voto femenino. ¿Murió antes o después de conseguirlo?",
       opts:     [
         "Después, lo vio cumplido",
@@ -139,6 +243,83 @@ const QUESTIONS = {
 
   // ─── ADULTO ──────────────────────────────────────────────────
   adulto: [
+    {
+      persona:  "Ruth Bader Ginsburg",
+      q:        "Ruth Bader Ginsburg fue…",
+      opts:     [
+        "Periodista de la prensa rosa",
+        "La primera mujer presidenta de los EEUU",
+        "Escritora y activista provida",
+        "Abogada y jueza defensora de los derechos de la mujer",
+      ],
+      correct:  3,
+    },
+    {
+      persona:  "Coco Chanel",
+      q:        "Coco Chanel aportó, gracias a sus diseños de moda…",
+      opts:     [
+        "La minifalda y la liberación moralista de la ropa",
+        "Moda al alcance de todas las clases sociales",
+        "Tejidos más ecológicos y sostenibles",
+        "Libertad de movimiento y la ruptura con estereotipos de género",
+      ],
+      correct:  3,
+    },
+    {
+      persona:  "Helen Keller",
+      q:        "Helen Keller aprovechó su propia experiencia para…",
+      opts:     [
+        "Refugiarse en un convento",
+        "Demostrar que las personas con discapacidad también pueden ser actrices",
+        "Hacer un musical con su vida",
+        "Mejorar y crear nuevos métodos formativos para la educación de personas sordociegas",
+      ],
+      correct:  3,
+    },
+    {
+      persona:  "Teresa de Calcuta",
+      q:        "Santa Teresa de Calcuta fue conocida por…",
+      opts:     [
+        "Por sus misiones en África",
+        "Por haber nacido en Ávila",
+        "Ser la primera mujer Papa de la historia",
+        "Su dedicación a los más pobres, enfermos y desfavorecidos de la India",
+      ],
+      correct:  3,
+    },
+    {
+      persona:  "Jane Goodall",
+      q:        "Jane Goodall dedicó su vida a estudiar…",
+      opts:     [
+        "El lobo ibérico",
+        "Los elefantes africanos",
+        "Los chimpancés",
+        "Los erizos de mar",
+      ],
+      correct:  2,
+    },
+    {
+      persona:  "Pippi Calzaslargas",
+      q:        "Pippi Calzaslargas era…",
+      opts:     [
+        "Vivía con su abuelito",
+        "Estaba malita y sus aventuras las soñaba desde la cama",
+        "Tenía mucha personalidad y siempre peleaba por las injusticias",
+        "Una niña tímida y sin amigos",
+      ],
+      correct:  2,
+    },
+    {
+      persona:  "Mary Shelley",
+      q:        "Mary Shelley escribió…",
+      opts:     [
+        "La Familia Adams",
+        "Frankenstein",
+        "No fue escritora",
+        "Pippi Calzaslargas",
+      ],
+      correct:  1,
+    },
     {
       persona:  "Marie Curie · Wangari Maathai",
       q:        "Marie Curie y Wangari Maathai tienen algo en común. ¿Qué es?",
@@ -198,6 +379,39 @@ const QUESTIONS = {
 
   // ─── EXPERTO ─────────────────────────────────────────────────
   experto: [
+    {
+      persona:  "Varios personajes",
+      q:        "¿Cuántas mujeres de la exposición son personas reales, y cuántas de ficción?",
+      opts:     [
+        "Mitad y mitad",
+        "Todas son personas reales",
+        "31 son mujeres de carne y hueso, y 4 personajes de ficción",
+        "5 son mujeres de ficción y 30 reales",
+      ],
+      correct:  2,
+    },
+    {
+      persona:  "Juana de Arco",
+      q:        "Juana de Arco fue quemada en la hoguera por…",
+      opts:     [
+        "Por tener una enfermedad mental",
+        "Condenada por hereje, porque la descubrieron haciendo rituales de brujería en el bosque",
+        "Porque estaba enferma de lepra, y para evitar contagios",
+        "Condenada por hereje, pero en realidad encubría un complot político para acabar con su poder",
+      ],
+      correct:  3,
+    },
+    {
+      persona:  "Harriet Tubman",
+      q:        "¿Es cierto que Harriet Tubman es la primera mujer en aparecer en un billete de dólar americano?",
+      opts:     [
+        "Sí, es un billete de 20 dólares",
+        "Sí, pero es de dólar canadiense",
+        "No, no fue la primera, hay más anteriores",
+        "No, aún no circula de forma oficial ese billete",
+      ],
+      correct:  3,
+    },
     {
       persona:  "Hipatia · Marie Curie · Serena Williams",
       q:        "Hipatia, Marie Curie y Serena Williams, pese a vivir en épocas muy distintas, comparten un patrón histórico. ¿Cuál?",
