@@ -31,9 +31,9 @@ body { padding-top: 62px; }
 .lv-hero__icon { margin: 0 auto .9rem; display: block; }
 
 .lv-hero h1 {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(2.2rem, 7vw, 4.5rem);
-  font-weight: 800; letter-spacing: -.025em; line-height: 1.05;
+  font-family: 'Rouge Script', cursive;
+  font-size: clamp(3rem, 9vw, 6rem);
+  font-weight: 400; letter-spacing: .01em; line-height: 1.05;
   margin-bottom: .4rem; color: var(--dark);
 }
 /* Destacar MUJERES y HISTORIA en el subtítulo del nivel también */
@@ -41,13 +41,14 @@ body { padding-top: 62px; }
 .lv-hero h1 .w-historia { color: var(--orange); }
 
 .lv-hero__age {
-  font-family: 'Syne', sans-serif;
-  font-size: .78rem; font-weight: 700;
-  letter-spacing: .18em; text-transform: uppercase;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-weight: 500;
+  letter-spacing: .12em; text-transform: uppercase;
   color: var(--text-m); margin-bottom: 1.1rem;
 }
 .lv-hero__desc {
-  font-size: .95rem; color: var(--text-m);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem; color: var(--text-m);
   max-width: 420px; margin: 0 auto;
   line-height: 1.65; font-weight: 400;
 }
@@ -80,14 +81,15 @@ body { padding-top: 62px; }
 }
 
 .q-num {
-  font-size: .68rem; color: var(--text-m);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .88rem; color: var(--text-m);
   font-weight: 600; letter-spacing: .1em;
   text-transform: uppercase; margin-bottom: .4rem;
 }
 .q-text {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.02rem; font-weight: 700;
-  line-height: 1.4; margin-bottom: 1.1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; font-weight: 600;
+  line-height: 1.45; margin-bottom: 1.1rem;
   color: var(--dark);
 }
 
@@ -109,7 +111,7 @@ body { padding-top: 62px; }
   background: rgba(0,0,0,.07);
   font-size: .68rem; font-weight: 800;
   flex-shrink: 0; margin-top: .05rem;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Cormorant Garamond', serif;
 }
 .option--correct .opt-letter { background: rgba(255,255,255,.35); }
 .check-mark { margin-left: auto; flex-shrink: 0; }
@@ -126,20 +128,36 @@ body { padding-top: 62px; }
     <span class="w-rest"> que Cambian la </span>
     <span class="w-historia">Historia</span>
   </a>
-  <div class="topbar__levels">
-    <a href="nivel.html?level=infantil" class="lv-a"><span class="lv-label">Infantil</span></a>
-    <a href="nivel.html?level=juvenil"  class="lv-b"><span class="lv-label">Juvenil</span></a>
-    <a href="nivel.html?level=adulto"   class="lv-c"><span class="lv-label">Adulto</span></a>
-    <a href="nivel.html?level=experto"  class="lv-d"><span class="lv-label">Experto</span></a>
+  <div class="topbar__nav">
+    <a href="index.html#artesanas">Sobre Nosotras</a>
+    <a href="index.html#contacto">Contacto</a>
+    <div class="nav-dropdown" id="navDropdown">
+      <button onclick="document.getElementById('navDropdown').classList.toggle('open')">
+        Respuestas <span class="nav-caret"></span>
+      </button>
+      <div class="nav-dropdown__menu">
+        <a href="nivel.html?level=infantil"><span class="lv-dot" style="background:var(--a-border)"></span> Infantil</a>
+        <a href="nivel.html?level=juvenil"><span class="lv-dot" style="background:var(--b-border)"></span> Juvenil</a>
+        <a href="nivel.html?level=adulto"><span class="lv-dot" style="background:var(--c-border)"></span> Adulto</a>
+        <a href="nivel.html?level=experto"><span class="lv-dot" style="background:var(--d-border)"></span> Experto</a>
+      </div>
+    </div>
   </div>
 </nav>
+
+<script>
+document.addEventListener('click', function(e){
+  const dd = document.getElementById('navDropdown');
+  if(dd && !dd.contains(e.target)) dd.classList.remove('open');
+});
+</script>
 
 <div id="app"></div>
 
 <footer class="footer">
-  <p><strong>Mujeres Que Cambian La Historia</strong> &mdash; Exposición de amigurumis por <strong>Elena Frisuelos · Diseños ELEMA</strong></p>
-  <p style="margin-top:.3rem;font-size:.76rem">Las respuestas reflejan los textos de los paneles de la exposición.</p>
-  <p style="margin-top:.5rem;font-size:.72rem;opacity:.65">Desarrollo web: <a href="https://maramotto.com" style="color:inherit;text-decoration:underline">maramotto.com</a></p>
+  <p><strong>Mujeres Que Cambian La Historia</strong></p>
+  <p style="margin-top:.3rem;">Exposición de amigurumis por <strong>Mayte Perni y Elena Frisuelos · Diseños ELEMA</strong></p>
+  <p style="margin-top:.5rem;font-size:.82rem;opacity:.7">2026 &nbsp;·&nbsp; <a href="https://maramotto.com" style="color:inherit;text-decoration:underline">maramotto.com</a></p>
 </footer>
 
 <script src="js/questions.js"></script>
