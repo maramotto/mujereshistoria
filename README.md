@@ -1,8 +1,8 @@
 # Mujeres Que Cambian La Historia
 
-Sitio web para la exposición de amigurumis **"Mujeres Que Cambian La Historia"** de **Elena Frisuelos · Diseños ELEMA**.
+Sitio web para la exposición de amigurumis **"Mujeres Que Cambian La Historia"** de **Mayte Perni y Elena Frisuelos · Diseños ELEMA**.
 
-La exposición presenta 34 muñecas tejidas a mano, cada una representando a una mujer histórica que transformó el mundo. Este sitio acompaña a la exposición como cuestionario interactivo: los visitantes escanean un QR de su cuestionario en papel y ven las respuestas correctas.
+La exposición presenta 35 muñecas tejidas a mano, cada una representando a una mujer histórica que transformó el mundo. Este sitio acompaña a la exposición como cuestionario interactivo: los visitantes escanean un QR de su cuestionario en papel y ven las respuestas correctas.
 
 ---
 
@@ -12,10 +12,14 @@ La exposición presenta 34 muñecas tejidas a mano, cada una representando a una
 mujereshistoria/
 ├── index.html          # Página principal de la exposición
 ├── nivel.html          # Plantilla única para los 4 niveles de cuestionario
+├── robots.txt          # Directivas para crawlers (Google, Bing…)
+├── sitemap.xml         # Mapa del sitio para indexación
 ├── css/
 │   └── styles.css      # Estilos globales (paleta, tipografía, componentes)
 ├── js/
 │   └── questions.js    # Todas las preguntas y respuestas (única fuente de verdad)
+├── img/
+│   └── logo_elema.jpg  # Logo Diseños ELEMA (sección de contacto)
 ├── nginx.conf          # Configuración nginx con URLs limpias para los QR
 ├── Dockerfile          # Imagen Docker basada en nginx:alpine
 ├── docker-compose.yml  # Orquestación del contenedor
@@ -28,10 +32,10 @@ mujereshistoria/
 
 | Nivel | URL | Público |
 |-------|-----|---------|
-| Infantil | `tudominio.com/infantil` | Hasta 7 años |
-| Juvenil  | `tudominio.com/juvenil`  | 7 a 14 años |
-| Adulto   | `tudominio.com/adulto`   | Más de 14 años — Fácil |
-| Experto  | `tudominio.com/experto`  | Más de 14 años — Difícil |
+| Infantil | `elema.es/infantil` | Hasta 7 años |
+| Juvenil  | `elema.es/juvenil`  | 7 a 14 años |
+| Adulto   | `elema.es/adulto`   | Más de 14 años — Fácil |
+| Experto  | `elema.es/experto`  | Más de 14 años — Difícil |
 
 Nginx redirige automáticamente estas URLs limpias a `nivel.html?level=<nivel>`.
 
@@ -41,7 +45,7 @@ Nginx redirige automáticamente estas URLs limpias a `nivel.html?level=<nivel>`.
 
 **Solo hay que tocar un archivo: `js/questions.js`**
 
-Estructura de cada pregunta:
+Cada nivel tiene exactamente **10 preguntas**. Estructura de cada pregunta:
 
 ```js
 {
@@ -58,6 +62,43 @@ Estructura de cada pregunta:
 ```
 
 El archivo `nivel.html` nunca necesita editarse — lee los datos de `questions.js` automáticamente.
+
+### Criterio de dificultad por nivel
+
+| Nivel | Criterio |
+|-------|----------|
+| **Infantil** | Preguntas con pistas de contexto dentro del enunciado para ayudar a los más pequeños a identificar los personajes |
+| **Juvenil** | Preguntas que relacionan personajes y épocas distintas |
+| **Adulto** | Ideas, conceptos clave y legado de cada mujer |
+| **Experto** | Fechas concretas, conexiones entre historias, datos menos conocidos |
+
+---
+
+## Navegación y secciones
+
+La barra de navegación tiene tres elementos:
+
+- **Sobre Nosotras** → ancla `#artesanas` (bio de Elena y Mayte)
+- **Contacto** → ancla `#contacto` (teléfono y email con logo ELEMA)
+- **Respuestas Cuestionario** → menú desplegable con los 4 niveles
+
+---
+
+## SEO
+
+Los archivos `robots.txt` y `sitemap.xml` están en la raíz y son servidos directamente por nginx.
+
+Después de cada despliegue es recomendable enviar el sitemap desde **Google Search Console**:
+1. Acceder a [search.google.com/search-console](https://search.google.com/search-console)
+2. Seleccionar la propiedad `elema.es`
+3. Ir a **Sitemaps** y enviar `https://elema.es/sitemap.xml`
+
+Cada página incluye:
+- `<meta description>` y `<meta keywords>`
+- `<link rel="canonical">`
+- Open Graph (WhatsApp, Facebook, LinkedIn)
+- Twitter Card
+- JSON-LD `ExhibitionEvent` para rich results de Google
 
 ---
 
@@ -82,8 +123,6 @@ chmod +x deploy.sh
 # 3. Desplegar
 ./deploy.sh
 ```
-
-El sitio queda disponible en `http://IP-DEL-SERVIDOR`.
 
 ### Actualizar tras cambios
 
@@ -113,52 +152,56 @@ docker compose restart
 
 ---
 
-## HTTPS con Let's Encrypt (opcional)
-
-Si el servidor tiene un dominio apuntado, añadir HTTPS con Certbot:
+## HTTPS con Let's Encrypt
 
 ```bash
-# Instalar Certbot en el servidor (fuera de Docker)
 sudo apt install certbot python3-certbot-nginx
-
-# Obtener certificado
-sudo certbot --nginx -d tudominio.com
-
-# Renovación automática (se configura sola)
-sudo certbot renew --dry-run
+sudo certbot --nginx -d elema.es
+sudo certbot renew --dry-run   # Renovación automática
 ```
 
 ---
 
 ## Desarrollo local
 
-Sin Docker, sirviendo los archivos estáticos directamente:
-
 ```bash
-# Con Python (cualquier directorio)
+# Con Python
 python3 -m http.server 8080
 
-# Con Node (si tienes npx)
+# Con Node
 npx serve .
 ```
 
-Abrir `http://localhost:8080` en el navegador.
+Abrir `http://localhost:8080`. Las URLs limpias `/infantil` etc. solo funcionan con nginx; en local usar `nivel.html?level=infantil`.
 
-> **Nota:** las URLs limpias `/infantil`, `/juvenil` etc. solo funcionan con nginx. En local usar directamente `nivel.html?level=infantil`.
+---
+
+## Tipografía
+
+| Uso | Fuente |
+|-----|--------|
+| Título principal y logo topbar | [Rouge Script](https://fonts.google.com/specimen/Rouge+Script) |
+| Cuerpo, párrafos, preguntas | [Cormorant Garamond](https://fonts.google.com/specimen/Cormorant+Garamond) |
+| Headings de sección, botones | [Syne](https://fonts.google.com/specimen/Syne) |
 
 ---
 
 ## Tecnologías
 
 - HTML / CSS / JavaScript vanilla — sin frameworks, sin dependencias
-- [Syne](https://fonts.google.com/specimen/Syne) + [DM Sans](https://fonts.google.com/specimen/DM+Sans) (Google Fonts)
+- Google Fonts (Rouge Script + Cormorant Garamond)
 - nginx:alpine como servidor web
 - Docker + Docker Compose para el despliegue
+- Let's Encrypt / Certbot para HTTPS
 
 ---
 
 ## Autoría
 
-**Exposición y amigurumis:** Diseños ELEMA — Amigurumis y creaciones artesanas
+**Exposición y amigurumis:** Mayte Perni y Elena Frisuelos
+
+[Diseños ELEMA](https://elema.es) — Amigurumis y creaciones artesanas
+
+EMAIL: correoelema@gmail.com - TELÉFONO: 617 571 304
 
 **Desarrollo web:** [maramotto.com](https://maramotto.com)
