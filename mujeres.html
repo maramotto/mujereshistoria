@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mujeres · Su Historia · Mujeres Que Cambian La Historia | Diseños ELEMA</title>
+<meta name="description" content="Conoce la historia de las 35 mujeres extraordinarias de la exposición de amigurumis Mujeres Que Cambian La Historia. Por Diseños ELEMA.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://elema.es/mujeres.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://elema.es/mujeres.html">
+<meta property="og:title" content="Mujeres · Su Historia · Diseños ELEMA">
+<meta property="og:description" content="35 mujeres extraordinarias. Sus historias, su legado, su valentía. Una exposición de Diseños ELEMA.">
+<meta property="og:image" content="https://elema.es/img/logo_elema.jpg">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Diseños ELEMA">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+body { padding-top: 64px; }
+
+/* ══════════════════════════════
+   HERO
+══════════════════════════════ */
+.mh-hero {
+  background: var(--white);
+  padding: 4.5rem 1.5rem 0;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.mh-hero::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cellipse cx='30' cy='30' rx='10' ry='6.5' fill='none' stroke='%23C0A080' stroke-width='1' opacity='0.10'/%3E%3Cellipse cx='0' cy='0' rx='10' ry='6.5' fill='none' stroke='%23C0A080' stroke-width='1' opacity='0.10'/%3E%3Cellipse cx='60' cy='0' rx='10' ry='6.5' fill='none' stroke='%23C0A080' stroke-width='1' opacity='0.10'/%3E%3Cellipse cx='0' cy='60' rx='10' ry='6.5' fill='none' stroke='%23C0A080' stroke-width='1' opacity='0.10'/%3E%3Cellipse cx='60' cy='60' rx='10' ry='6.5' fill='none' stroke='%23C0A080' stroke-width='1' opacity='0.10'/%3E%3C/svg%3E");
+}
+.mh-hero-blob {
+  position: absolute;
+  width: 550px; height: 450px;
+  border-radius: 50% 60% 55% 45% / 55% 45% 60% 50%;
+  background: var(--rose);
+  filter: blur(70px); opacity: .28;
+  top: -80px; left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.mh-hero-inner { position: relative; z-index: 1; }
+
+.mh-hero__badge {
+  display: inline-block;
+  background: var(--rose-l); color: var(--rose-d);
+  font-family: 'Cormorant Garamond', serif; font-size: 1.0rem; font-weight: 600;
+  letter-spacing: .22em; text-transform: uppercase;
+  padding: .36rem 1.2rem; border-radius: 999px;
+  border: 1px solid var(--rose-m);
+  margin-bottom: 1.5rem;
+  animation: fadeUp .5s ease both;
+}
+
+.mh-hero h1 {
+  font-family: 'Rouge Script', cursive; font-weight: 400;
+  font-size: clamp(5rem, 12vw, 9rem);
+  line-height: 1.02; letter-spacing: .01em;
+  margin-bottom: .2rem;
+  animation: fadeUp .6s .1s ease both;
+}
+.mh-hero h1 .w-mujeres  { color: var(--purple); }
+.mh-hero h1 .w-historia { color: var(--orange); }
+.mh-hero h1 .w-rest     { color: var(--text); }
+
+.mh-hero__sub {
+  font-family: 'Rouge Script', cursive;
+  font-size: clamp(1.8rem, 5vw, 3.2rem);
+  color: var(--rose-d);
+  margin-bottom: 1.8rem;
+  animation: fadeUp .6s .2s ease both;
+  line-height: 1.1;
+}
+
+.mh-hero-wave { position: relative; z-index: 1; margin-top: .5rem; }
+
+/* ══════════════════════════════
+   NUBE DE NOMBRES
+══════════════════════════════ */
+.mh-cloud-section {
+  background: var(--cream);
+  padding: 3.5rem 1.5rem 4rem;
+}
+.mh-cloud-label {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.mh-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem;
+  justify-content: center;
+  align-items: center;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* Cada píldora tiene un tamaño variable para dar sensación de nube */
+.mh-pill {
+  display: inline-block;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  white-space: nowrap;
+  border-radius: 999px;
+  border: 2px solid;
+  padding: .42rem 1.15rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform .2s, box-shadow .2s, background .2s, color .2s;
+  line-height: 1.2;
+}
+.mh-pill:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 6px 20px rgba(42,32,24,.12);
+}
+
+/* Tamaños (simulan relevancia/aleatoriedad) */
+.mh-pill--s  { font-size: 1.1rem; }
+.mh-pill--m  { font-size: 1.3rem; }
+.mh-pill--l  { font-size: 1.5rem; }
+.mh-pill--xl { font-size: 1.75rem; }
+
+/* Colores de las píldoras — gama de rosas pastel */
+.mh-pill--c1 { background: #FFF0F3; border-color: #E8A0AE; color: #9A3048; }
+.mh-pill--c2 { background: #FEF0F7; border-color: #D490B8; color: #7A2060; }
+.mh-pill--c3 { background: #FDF5F0; border-color: #D4A090; color: #8A4030; }
+.mh-pill--c4 { background: #FFF4F0; border-color: #C88898; color: #882040; }
+.mh-pill--c5 { background: #FAF0F8; border-color: #C8A0C8; color: #682068; }
+.mh-pill--c6 { background: #FFF8F0; border-color: #D8B888; color: #7A4810; }
+
+.mh-pill--c1:hover { background: #E8A0AE; color: #fff; }
+.mh-pill--c2:hover { background: #D490B8; color: #fff; }
+.mh-pill--c3:hover { background: #D4A090; color: #fff; }
+.mh-pill--c4:hover { background: #C88898; color: #fff; }
+.mh-pill--c5:hover { background: #C8A0C8; color: #fff; }
+.mh-pill--c6:hover { background: #D8B888; color: #fff; }
+
+/* Píldora especial "Tú" */
+.mh-pill--tu {
+  background: var(--purple-l);
+  border-color: var(--purple);
+  color: var(--purple-d);
+  font-style: italic;
+}
+.mh-pill--tu:hover { background: var(--purple); color: #fff; }
+
+/* ══════════════════════════════
+   FICHAS DE PERSONAJES
+══════════════════════════════ */
+.mh-fichas-section {
+  padding: 4rem 1.5rem 5rem;
+  background: var(--white);
+  position: relative;
+}
+.mh-fichas-section::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cellipse cx='30' cy='30' rx='10' ry='6.5' fill='none' stroke='%23C0A080' stroke-width='1' opacity='0.06'/%3E%3Cellipse cx='0' cy='0' rx='10' ry='6.5' fill='none' stroke='%23C0A080' stroke-width='1' opacity='0.06'/%3E%3Cellipse cx='60' cy='0' rx='10' ry='6.5' fill='none' stroke='%23C0A080' stroke-width='1' opacity='0.06'/%3E%3Cellipse cx='0' cy='60' rx='10' ry='6.5' fill='none' stroke='%23C0A080' stroke-width='1' opacity='0.06'/%3E%3Cellipse cx='60' cy='60' rx='10' ry='6.5' fill='none' stroke='%23C0A080' stroke-width='1' opacity='0.06'/%3E%3C/svg%3E");
+}
+.mh-fichas-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative; z-index: 1;
+}
+@media (max-width: 640px) {
+  .mh-fichas-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Ficha individual ── */
+.mh-ficha {
+  background: var(--white);
+  border-radius: 22px;
+  border-left: 5px solid;
+  padding: 1.75rem 1.75rem 1.6rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(42,32,24,.05);
+  transition: transform .25s, box-shadow .25s;
+  scroll-margin-top: 90px;
+}
+.mh-ficha:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(42,32,24,.10);
+}
+/* Blob decorativo esquina superior derecha */
+.mh-ficha::before {
+  content: '';
+  position: absolute; top: -24px; right: -24px;
+  width: 100px; height: 100px; border-radius: 50%;
+  filter: blur(30px); opacity: .5;
+  pointer-events: none;
+}
+
+/* Gama de colores pastel rosa para las fichas */
+.mh-ficha--p1 { border-color: #E8A0AE; }
+.mh-ficha--p1::before { background: #F5C8D2; }
+
+.mh-ficha--p2 { border-color: #D490B8; }
+.mh-ficha--p2::before { background: #EAC0D8; }
+
+.mh-ficha--p3 { border-color: #D4A090; }
+.mh-ficha--p3::before { background: #EAC8B8; }
+
+.mh-ficha--p4 { border-color: #C88898; }
+.mh-ficha--p4::before { background: #E8B8C4; }
+
+.mh-ficha--p5 { border-color: #C8A0C8; }
+.mh-ficha--p5::before { background: #E0C8E0; }
+
+.mh-ficha--p6 { border-color: #D8B888; }
+.mh-ficha--p6::before { background: #ECD8B0; }
+
+/* Badge origen + fechas */
+.mh-ficha__meta {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .8rem; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--text-m);
+  border: 1.5px solid var(--cream-dd);
+  background: var(--cream);
+  border-radius: 999px;
+  padding: .25rem .85rem;
+  margin-bottom: 1rem;
+  position: relative; z-index: 1;
+}
+
+.mh-ficha__nombre {
+  font-family: 'Rouge Script', cursive;
+  font-weight: 400;
+  font-size: clamp(2.1rem, 4vw, 2.4rem);
+  line-height: 1.05;
+  margin-bottom: 1rem;
+  color: var(--dark);
+  position: relative; z-index: 1;
+}
+
+.mh-ficha__texto {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  line-height: 1.72;
+  color: var(--text-m);
+  position: relative; z-index: 1;
+}
+.mh-ficha__texto em { color: var(--rose-d); font-style: italic; }
+.mh-ficha__texto strong { color: var(--text); }
+
+/* Línea decorativa separadora entre secciones de texto */
+.mh-ficha__div {
+  width: 40px; height: 2px; border-radius: 2px;
+  margin: 1rem 0;
+  position: relative; z-index: 1;
+}
+
+/* ── Ficha especial "TÚ" ── */
+.mh-ficha--tu {
+  border-color: var(--rose-d);
+  background: linear-gradient(135deg, var(--rose-l) 0%, #fff8f4 100%);
+  grid-column: 1 / -1; /* Ocupa todo el ancho */
+  text-align: center;
+}
+.mh-ficha--tu::before { background: var(--rose); width: 200px; height: 200px; opacity: .3; top: -60px; right: -60px; }
+.mh-ficha--tu .mh-ficha__nombre {
+  font-size: clamp(2.2rem, 6vw, 3.5rem);
+  color: var(--rose-d);
+}
+.mh-ficha--tu .mh-ficha__texto {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--text);
+  max-width: 680px;
+  margin: 0 auto;
+}
+.mh-ficha--tu .mh-ficha__div { margin: 1rem auto; background: var(--rose-d); }
+
+/* Botón volver arriba */
+.mh-back-top {
+  display: flex; justify-content: center;
+  margin-top: 3rem;
+  position: relative; z-index: 1;
+}
+</style>
+</head>
+<body class="crochet-bg">
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <a href="index.html" class="topbar__logo">
+    <span class="w-mujeres">Mujeres</span><span class="w-rest"> que Cambian la </span><span class="w-historia">Historia</span>
+  </a>
+  <div class="topbar__nav">
+    <a href="mujeres.html" style="color:var(--rose-d);background:var(--rose-l);border-radius:999px;">Mujeres e Historias</a>
+    <a href="index.html#artesanas">Sobre Nosotras</a>
+    <a href="index.html#contacto">Contacto</a>
+    <div class="nav-dropdown" id="navDropdown">
+      <button onclick="document.getElementById('navDropdown').classList.toggle('open')">
+        Respuestas <span class="nav-caret"></span>
+      </button>
+      <div class="nav-dropdown__menu">
+        <a href="nivel.html?level=infantil"><span class="lv-dot" style="background:var(--a-border)"></span> Infantil</a>
+        <a href="nivel.html?level=juvenil"><span class="lv-dot" style="background:var(--b-border)"></span> Juvenil</a>
+        <a href="nivel.html?level=adulto"><span class="lv-dot" style="background:var(--c-border)"></span> Adulto</a>
+        <a href="nivel.html?level=experto"><span class="lv-dot" style="background:var(--d-border)"></span> Experto</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<script>
+document.addEventListener('click', function(e){
+  const dd = document.getElementById('navDropdown');
+  if(dd && !dd.contains(e.target)) dd.classList.remove('open');
+});
+</script>
+
+<!-- HERO -->
+<section class="mh-hero">
+  <div class="mh-hero-blob"></div>
+  <div class="mh-hero-inner container">
+    <div class="mh-hero__badge anim">Exposición · Diseños ELEMA</div>
+    <h1 class="anim anim-d1">
+      <span class="w-mujeres">Mujeres</span>
+    </h1>
+    <div class="mh-hero__sub anim anim-d2">Su historia</div>
+  </div>
+  <div class="mh-hero-wave">
+    <svg viewBox="0 0 1440 62" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,35 C360,62 1080,8 1440,35 L1440,62 L0,62 Z" fill="var(--cream)"/>
+    </svg>
+  </div>
+</section>
+
+<!-- NUBE DE NOMBRES -->
+<section class="mh-cloud-section">
+  <div class="mh-cloud-label">
+    <div class="section-label">35 protagonistas</div>
+  </div>
+  <div class="mh-cloud">
+    <a href="#simone-de-beauvoir"    class="mh-pill mh-pill--xl mh-pill--c1">Simone de Beauvoir</a>
+    <a href="#marie-curie"           class="mh-pill mh-pill--xl mh-pill--c2">Marie Curie</a>
+    <a href="#juana-de-arco"         class="mh-pill mh-pill--l  mh-pill--c3">Juana de Arco</a>
+    <a href="#rosa-parks"            class="mh-pill mh-pill--l  mh-pill--c4">Rosa Parks</a>
+    <a href="#hipatia"               class="mh-pill mh-pill--m  mh-pill--c5">Hipatia</a>
+    <a href="#frida-kahlo"           class="mh-pill mh-pill--l  mh-pill--c6">Frida Kahlo</a>
+    <a href="#amelia-earhart"        class="mh-pill mh-pill--l  mh-pill--c1">Amelia Earhart</a>
+    <a href="#catalina-ii"           class="mh-pill mh-pill--m  mh-pill--c2">Catalina II de Rusia</a>
+    <a href="#harriet-tubman"        class="mh-pill mh-pill--l  mh-pill--c3">Harriet Tubman</a>
+    <a href="#malala"                class="mh-pill mh-pill--xl mh-pill--c4">Malala Yousafzai</a>
+    <a href="#coco-chanel"           class="mh-pill mh-pill--m  mh-pill--c5">Coco Chanel</a>
+    <a href="#teresa-calcuta"        class="mh-pill mh-pill--l  mh-pill--c6">Teresa de Calcuta</a>
+    <a href="#jane-austen"           class="mh-pill mh-pill--l  mh-pill--c1">Jane Austen</a>
+    <a href="#ruth-bader"            class="mh-pill mh-pill--m  mh-pill--c2">Ruth Bader Ginsburg</a>
+    <a href="#wangari-maathai"       class="mh-pill mh-pill--l  mh-pill--c3">Wangari Maathai</a>
+    <a href="#grace-hopper"          class="mh-pill mh-pill--l  mh-pill--c4">Grace Hopper</a>
+    <a href="#mary-shelley"          class="mh-pill mh-pill--m  mh-pill--c5">Mary Shelley</a>
+    <a href="#serena-williams"       class="mh-pill mh-pill--l  mh-pill--c6">Serena Williams</a>
+    <a href="#concepcion-arenal"     class="mh-pill mh-pill--l  mh-pill--c1">Concepción Arenal</a>
+    <a href="#emmeline-pankhurst"    class="mh-pill mh-pill--m  mh-pill--c2">Emmeline Pankhurst</a>
+    <a href="#hellen-keller"         class="mh-pill mh-pill--l  mh-pill--c3">Helen Keller</a>
+    <a href="#jane-goodall"          class="mh-pill mh-pill--l  mh-pill--c4">Jane Goodall</a>
+    <a href="#diana-gales"           class="mh-pill mh-pill--m  mh-pill--c5">Diana de Gales</a>
+    <a href="#amelia-tinagus"        class="mh-pill mh-pill--m  mh-pill--c6">Amelia Tinagus</a>
+    <a href="#madres-plaza-mayo"     class="mh-pill mh-pill--l  mh-pill--c1">Madres de la Plaza de Mayo</a>
+    <a href="#las-13-rosas"          class="mh-pill mh-pill--l  mh-pill--c2">Las 13 Rosas</a>
+    <a href="#ana-tejas-verdes"      class="mh-pill mh-pill--m  mh-pill--c3">Ana de las Tejas Verdes</a>
+    <a href="#pippi"                 class="mh-pill mh-pill--m  mh-pill--c4">Pippi Calzaslargas</a>
+    <a href="#mary-poppins"          class="mh-pill mh-pill--m  mh-pill--c5">Mary Poppins</a>
+    <a href="#gloria-fuertes"        class="mh-pill mh-pill--l  mh-pill--c6">Gloria Fuertes</a>
+    <a href="#rosie"                 class="mh-pill mh-pill--m  mh-pill--c1">Rosie the Riveter</a>
+    <a href="#isabel-ii"             class="mh-pill mh-pill--m  mh-pill--c2">Reina Isabel II</a>
+    <a href="#cleopatra"             class="mh-pill mh-pill--l  mh-pill--c3">Cleopatra</a>
+    <a href="#florence-nightingale"  class="mh-pill mh-pill--l  mh-pill--c4">Florence Nightingale</a>
+    <a href="#tu"                    class="mh-pill mh-pill--xl mh-pill--tu">Tú</a>
+  </div>
+</section>
+
+<!-- WAVE -->
+<svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;margin-bottom:-2px">
+  <path d="M0,24 C480,48 960,0 1440,24 L1440,0 L0,0 Z" fill="var(--cream)"/>
+  <path d="M0,24 C480,48 960,0 1440,24 L1440,48 L0,48 Z" fill="var(--white)"/>
+</svg>
+
+<!-- FICHAS DE PERSONAJES -->
+<section class="mh-fichas-section">
+  <div class="container">
+    <div class="mh-fichas-grid">
+
+      <!-- SIMONE DE BEAUVOIR -->
+      <div class="mh-ficha mh-ficha--p1" id="simone-de-beauvoir">
+        <div class="mh-ficha__meta">Francia · 1908–1986</div>
+        <div class="mh-ficha__nombre">Simone de Beauvoir</div>
+        <div class="mh-ficha__div" style="background:#E8A0AE"></div>
+        <p class="mh-ficha__texto">Filósofa, profesora, escritora y una de las activistas feministas más reconocidas del siglo pasado. Libros como <em>El Segundo Sexo</em> siguen siendo lecturas imprescindibles, definiendo el feminismo como <em>"una manera de vivir individualmente y una manera de luchar colectivamente"</em>.<br><br>Es reconocida como la madre del feminismo moderno, pero su importancia no se limita a sus libros, sino en cómo vivió: rechazó activamente el guion social impuesto, defendiendo su independencia económica, su rechazo al matrimonio y ocupando por derecho propio lugares en el mundo intelectual público.</p>
+      </div>
+
+      <!-- ANA DE LAS TEJAS VERDES -->
+      <div class="mh-ficha mh-ficha--p2" id="ana-tejas-verdes">
+        <div class="mh-ficha__meta">Escrito por Lucy Montgomery · 1908</div>
+        <div class="mh-ficha__nombre">Ana de las Tejas Verdes</div>
+        <div class="mh-ficha__div" style="background:#D490B8"></div>
+        <p class="mh-ficha__texto">Ana Shirley es la protagonista de este maravilloso libro publicado a principios del siglo pasado. Una niña huérfana que llega a vivir a un pequeño pueblo y que, gracias a su carácter imaginativo y comprometido, acaba convirtiéndose en un miembro muy querido del lugar.<br><br>Desafía constantemente los roles de género, con ideas feministas, ambiciones profesionales y una gran sororidad. Se ha convertido en un ejemplo literario que despierta en las más pequeñas las ganas de ser ellas mismas.</p>
+      </div>
+
+      <!-- ROSA PARKS -->
+      <div class="mh-ficha mh-ficha--p3" id="rosa-parks">
+        <div class="mh-ficha__meta">EEUU · 1913–2005</div>
+        <div class="mh-ficha__nombre">Rosa Parks</div>
+        <div class="mh-ficha__div" style="background:#D4A090"></div>
+        <p class="mh-ficha__texto">Costurera negra que tuvo un gesto que cambiaría la historia. En 1955, en plena segregación racial, se negó a ceder su asiento a un joven blanco en Alabama. Ese gesto le costó la cárcel y una multa, pero encendió una ola de protestas que duró <strong>381 días</strong> y acabó con la declaración de inconstitucionalidad de la segregación en los autobuses públicos.<br><br>Pero no fue un acto casual: Rosa fue durante más de seis décadas un miembro central en la lucha por el cambio social, contra la discriminación laboral, la educación y el derecho a la vivienda.</p>
+      </div>
+
+      <!-- PIPPI CALZASLARGAS -->
+      <div class="mh-ficha mh-ficha--p4" id="pippi">
+        <div class="mh-ficha__meta">Creación de Astrid Lindgren · Década de los 40</div>
+        <div class="mh-ficha__nombre">Pippi Calzaslargas</div>
+        <div class="mh-ficha__div" style="background:#C88898"></div>
+        <p class="mh-ficha__texto">Personaje literario cuya rebeldía, fortaleza e imaginación han hecho las delicias de miles de personas desde los años 50. Sus historias cuestionan las reglas de comportamiento que la sociedad intenta imponer por edad y por género, defendiendo a los débiles y oprimidos con carácter anarquista.<br><br>Es un referente de empoderamiento femenino, demostrando que la niña no siempre tiene que ser pasiva o delicada, y que su valor no reside en su apariencia ni en su capacidad de complacer.</p>
+      </div>
+
+      <!-- MARIE CURIE -->
+      <div class="mh-ficha mh-ficha--p5" id="marie-curie">
+        <div class="mh-ficha__meta">Polonia · 1867–1934</div>
+        <div class="mh-ficha__nombre">Marie Curie</div>
+        <div class="mh-ficha__div" style="background:#C8A0C8"></div>
+        <p class="mh-ficha__texto">Científica pionera en el estudio de la radioactividad, descubrió el radio y el polonio. En su país, las mujeres no podían estudiar en la universidad, así que trabajó y ahorró para viajar a París. Sus descubrimientos siguen siendo fundamentales en la medicina — gracias a ella tenemos el diagnóstico por Rayos X.<br><br>Fue la <strong>primera mujer en ganar un Premio Nobel</strong>, la primera en obtener una cátedra en la Sorbona y la primera persona en ganar dos Premios Nobel. Además, concilió vida personal y laboral criando a sus hijas sola, siendo referente incluso para su hija, que también ganó el Nobel de Química.</p>
+      </div>
+
+      <!-- AMELIA TINAGUS -->
+      <div class="mh-ficha mh-ficha--p6" id="amelia-tinagus">
+        <div class="mh-ficha__meta">Rumanía · 1984</div>
+        <div class="mh-ficha__nombre">Amelia Tinagus</div>
+        <div class="mh-ficha__div" style="background:#D8B888"></div>
+        <p class="mh-ficha__texto">Activista, escritora y formadora abolicionista, superviviente del mundo prostitucional, dedicando su vida a defender los derechos humanos de las mujeres y niñas. Tras reconstruir su vida, convirtió sus heridas en fortalezas para luchar por el empoderamiento personal y político.<br><br>Ha escrito dos obras fundamentales: <em>Amelia, Historia de una lucha</em> y <em>La revuelta de las putas</em> (2021), donde critica la industria de la explotación sexual y reivindica que lo personal siempre es político.</p>
+      </div>
+
+      <!-- HIPATIA -->
+      <div class="mh-ficha mh-ficha--p1" id="hipatia">
+        <div class="mh-ficha__meta">Alejandría · 355–415</div>
+        <div class="mh-ficha__nombre">Hipatia</div>
+        <div class="mh-ficha__div" style="background:#E8A0AE"></div>
+        <p class="mh-ficha__texto">Considerada una de las primeras mujeres científicas de la historia, reconocida por sus avances en geometría, álgebra y astronomía. Enseñaba filosofía y ciencia en la escuela de Alejandría y fue madre de inventos como el densímetro y los planos celestes.<br><br>Símbolo de la lucha contra la invisibilidad femenina: a pesar de ocupar espacios públicos reservados a hombres, su nombre fue borrado de la historia durante siglos. Su violento asesinato fue también un castigo ejemplarizante a las mujeres que se atrevían a tener autonomía intelectual.</p>
+      </div>
+
+      <!-- SERENA WILLIAMS -->
+      <div class="mh-ficha mh-ficha--p2" id="serena-williams">
+        <div class="mh-ficha__meta">EEUU · 1981</div>
+        <div class="mh-ficha__nombre">Serena Williams</div>
+        <div class="mh-ficha__div" style="background:#D490B8"></div>
+        <p class="mh-ficha__texto">23 títulos en torneos de Grand Slam, 4 medallas de oro olímpicas consecutivas y más de 300 semanas en el número 1 del ranking WTA — 186 de ellas consecutivas. Sus cifras la sitúan entre las mejores deportistas de la historia, superando en números a muchos colegas masculinos.<br><br>Icono del activismo feminista dentro del deporte, ha reivindicado el cuerpo como territorio político, defendiendo la maternidad y el trabajo, la igualdad salarial y haciendo frente a los sesgos de género y raza.</p>
+      </div>
+
+      <!-- AMELIA EARHART -->
+      <div class="mh-ficha mh-ficha--p3" id="amelia-earhart">
+        <div class="mh-ficha__meta">EEUU · 1897–1937</div>
+        <div class="mh-ficha__nombre">Amelia Earhart</div>
+        <div class="mh-ficha__div" style="background:#D4A090"></div>
+        <p class="mh-ficha__texto">Legendaria aviadora que se convirtió en la <strong>primera mujer en volar en solitario a través del Atlántico</strong>. Pero no fue sólo una excepcional piloto: fue una activista comprometida que utilizó su fama para derribar las barreras de género, creando <em>The Ninety-Nines</em>, organización para unir y apoyar a las mujeres piloto.<br><br>Su impacto fue tecnológico, social y cultural. Se le reconoce también la creación de un nuevo modelo de "celebridad con propósito", donde su fama fue una herramienta al servicio del cambio social.</p>
+      </div>
+
+      <!-- HELEN KELLER -->
+      <div class="mh-ficha mh-ficha--p4" id="hellen-keller">
+        <div class="mh-ficha__meta">EEUU · 1880–1968</div>
+        <div class="mh-ficha__nombre">Helen Keller</div>
+        <div class="mh-ficha__div" style="background:#C88898"></div>
+        <p class="mh-ficha__texto">Escritora, oradora y activista política en favor de los derechos de las personas con discapacidades. Sordomuda desde los 19 meses de edad, esto no fue impedimento para llevar a cabo sus sueños. Fue la <strong>primera persona sordociega en obtener un título universitario</strong>, siendo apodada <em>"la mujer maravilla"</em> por su coraje.<br><br>Su propio proceso formativo dio pie a la mejora y creación de nuevos métodos educativos especiales que siguen siendo referencia hoy en día.</p>
+      </div>
+
+      <!-- RUTH BADER GINSBURG -->
+      <div class="mh-ficha mh-ficha--p5" id="ruth-bader">
+        <div class="mh-ficha__meta">EEUU · 1933–2020</div>
+        <div class="mh-ficha__nombre">Ruth Bader Ginsburg</div>
+        <div class="mh-ficha__div" style="background:#C8A0C8"></div>
+        <p class="mh-ficha__texto">Abogada y jueza cuyo trabajo destacó especialmente en la lucha por la igualdad de género. Fundadora de la sección de los derechos de la mujer en la Unión Estadounidense por las Libertades Civiles, y de la revista <em>Women's Rights Law Reporter</em>, la primera dedicada exclusivamente a los derechos de las mujeres.<br><br>Sus posicionamientos desde el Tribunal Supremo a favor del aborto, los derechos LGBTQ+ y las personas con discapacidad la convirtieron en un popular icono pop, demostrando que los cambios reales se logran con persistencia y argumentos bien fundados.</p>
+      </div>
+
+      <!-- TERESA DE CALCUTA -->
+      <div class="mh-ficha mh-ficha--p6" id="teresa-calcuta">
+        <div class="mh-ficha__meta">Albania · 1910–1997</div>
+        <div class="mh-ficha__nombre">Teresa de Calcuta</div>
+        <div class="mh-ficha__div" style="background:#D8B888"></div>
+        <p class="mh-ficha__texto">Monja católica que fundó la congregación de las Misioneras de la Caridad en Calcuta en los años 50. Durante más de 45 años se dedicó a los pobres, huérfanos y enfermos sin hogar, extendiendo su obra a una congregación internacional.<br><br>Su famoso hospicio <em>Kalighat, la casa del corazón puro</em>, ofrecía atención médica y la oportunidad de morir con dignidad según la propia fe. Recibió el <strong>Premio Nobel de la Paz en 1979</strong> y fue canonizada por el Papa Francisco en 2015.</p>
+      </div>
+
+      <!-- JUANA DE ARCO -->
+      <div class="mh-ficha mh-ficha--p1" id="juana-de-arco">
+        <div class="mh-ficha__meta">Francia · 1412–1431</div>
+        <div class="mh-ficha__nombre">Juana de Arco</div>
+        <div class="mh-ficha__div" style="background:#E8A0AE"></div>
+        <p class="mh-ficha__texto">También conocida como <em>la Doncella de Orléans</em>, era una joven campesina que se convirtió en líder militar en la fase final de la Guerra de los Cien Años. Con apenas <strong>17 años</strong>, capitaneó el levantamiento del sitio de Orléans, llevando a Carlos VII a su coronación como rey de Francia.<br><br>Su caída fue resultado de traiciones políticas y el miedo a su poder. Fue condenada a la hoguera con 19 años. Ese día comenzó su leyenda, que la ha llevado a ser una de las patronas de Francia, canonizada en 1920.</p>
+      </div>
+
+      <!-- CATALINA II DE RUSIA -->
+      <div class="mh-ficha mh-ficha--p2" id="catalina-ii">
+        <div class="mh-ficha__meta">Rusia · 1729–1796</div>
+        <div class="mh-ficha__nombre">Catalina II de Rusia</div>
+        <div class="mh-ficha__div" style="background:#D490B8"></div>
+        <p class="mh-ficha__texto">Llamada Catalina la Grande, fue emperatriz reinante durante 34 años, tras derrocar a su marido Pedro III. Bajo su reinado, Rusia experimentó un renacimiento de la cultura y las ciencias, convirtiéndose en una gran superpotencia europea.<br><br>Ejerció un poder absoluto en un mundo de hombres con gran éxito, lo que le generó grandes enemigos que atacaron su moralidad no pudiendo criticar su gestión. Tenía como objetivo dotar a las mujeres de educación y conocimiento, rompiendo con la idea de la inferioridad intelectual femenina.</p>
+      </div>
+
+      <!-- JANE AUSTEN -->
+      <div class="mh-ficha mh-ficha--p3" id="jane-austen">
+        <div class="mh-ficha__meta">Reino Unido · 1775–1817</div>
+        <div class="mh-ficha__nombre">Jane Austen</div>
+        <div class="mh-ficha__div" style="background:#D4A090"></div>
+        <p class="mh-ficha__texto">Novelista inglesa que figura entre los grandes clásicos de la literatura universal, tanto por su calidad literaria como por su éxito comercial. Sus obras, aparentemente simples, denuncian mediante la ironía y el realismo la sociedad patriarcal de la Inglaterra del siglo XVIII.<br><br>Sus protagonistas defienden la educación como herramienta de autonomía, critican el matrimonio de conveniencia y encarnan una mayor autonomía femenina. Elizabeth Bennet e Elinor Dashwood siguen fascinando a lectoras de todo el mundo.</p>
+      </div>
+
+      <!-- MALALA -->
+      <div class="mh-ficha mh-ficha--p4" id="malala">
+        <div class="mh-ficha__meta">Pakistán · 1997</div>
+        <div class="mh-ficha__nombre">Malala Yousafzai</div>
+        <div class="mh-ficha__div" style="background:#C88898"></div>
+        <p class="mh-ficha__texto">Activista pakistaní conocida por su incansable lucha por el derecho a la educación de las mujeres y niñas. Siendo adolescente sufrió ataques terroristas talibanes por su blog denunciando la prohibición de la educación femenina. El ataque no la silenció, sino que la fortaleció.<br><br>A los <strong>17 años se convirtió en la persona más joven en recibir el Premio Nobel de la Paz</strong> (2014). Hoy es mensajera de la Paz de la ONU y presidenta ejecutiva de la Malala Fund, trabajando por visibilizar historias de resiliencia femenina.</p>
+      </div>
+
+      <!-- COCO CHANEL -->
+      <div class="mh-ficha mh-ficha--p5" id="coco-chanel">
+        <div class="mh-ficha__meta">Francia · 1883–1971</div>
+        <div class="mh-ficha__nombre">Coco Chanel</div>
+        <div class="mh-ficha__div" style="background:#C8A0C8"></div>
+        <p class="mh-ficha__texto">Diseñadora de alta costura que fundó la marca Chanel, siendo la única diseñadora de moda en la lista de las cien personas más influyentes del siglo XX. Artífice de la eliminación del corsé — no solo por la opresión física, sino como símbolo de la opresión social.<br><br>Desafió estereotipos de género con su estilo, favoreció la libertad de movimiento y figuras andróginas. Además personificó en su época la independencia económica y social, construyendo y dirigiendo un imperio global en un mundo dominado por hombres.</p>
+      </div>
+
+      <!-- MADRES DE LA PLAZA DE MAYO -->
+      <div class="mh-ficha mh-ficha--p6" id="madres-plaza-mayo">
+        <div class="mh-ficha__meta">Argentina · 1977</div>
+        <div class="mh-ficha__nombre">Madres de la Plaza de Mayo</div>
+        <div class="mh-ficha__div" style="background:#D8B888"></div>
+        <p class="mh-ficha__texto">Asociación formada durante la dictadura de Videla para recuperar con vida a los detenidos desaparecidos, que terminó pidiendo justicia para esclarecer los responsables de esos crímenes. Dos símbolos las identifican: las marchas de los jueves en torno a la Plaza de Mayo y el pañuelo blanco con el que se reconocían.<br><br>Hoy siguen con sus marchas para visibilizar la lucha por los derechos humanos. Su historia enseña que la unión hace la fuerza, que no es necesaria la violencia y que nunca debemos rendirnos ni olvidar.</p>
+      </div>
+
+      <!-- JANE GOODALL -->
+      <div class="mh-ficha mh-ficha--p1" id="jane-goodall">
+        <div class="mh-ficha__meta">Londres · 1934–2025</div>
+        <div class="mh-ficha__nombre">Jane Goodall</div>
+        <div class="mh-ficha__div" style="background:#E8A0AE"></div>
+        <p class="mh-ficha__texto">Primatóloga, etóloga y antropóloga británica de fama mundial por su trabajo pionero en el estudio de los chimpancés salvajes en Tanzania. Revolucionó su campo con métodos más empáticos, descubriendo sus complejas estructuras sociales, emociones y hasta sus guerras, concluyendo que chimpancés y humanos somos más parecidos de lo que se creía.<br><br>Se convirtió también en gran activista por la conservación y los derechos de los animales, como Mensajera de la Paz de la ONU.</p>
+      </div>
+
+      <!-- MARY SHELLEY -->
+      <div class="mh-ficha mh-ficha--p2" id="mary-shelley">
+        <div class="mh-ficha__meta">Reino Unido · 1797–1851</div>
+        <div class="mh-ficha__nombre">Mary Shelley</div>
+        <div class="mh-ficha__div" style="background:#D490B8"></div>
+        <p class="mh-ficha__texto">Escritora británica mundialmente conocida por <em>Frankenstein</em>, que la sitúa como la madre de la ciencia ficción moderna. Vivió una vida marcada por tragedias pero tuvo una extensa producción bibliográfica cada vez más reconocida, no solo como autora del gran mito sino como gran pensadora radical que cuestionó el individualismo masculino.<br><br>Se negó a ser solo <em>"la esposa de"</em> y vivió rodeada de intelectuales masculinos a los que trató como iguales, viviendo profesionalmente de su escritura.</p>
+      </div>
+
+      <!-- LAS 13 ROSAS -->
+      <div class="mh-ficha mh-ficha--p3" id="las-13-rosas">
+        <div class="mh-ficha__meta">España · 1939</div>
+        <div class="mh-ficha__nombre">Las 13 Rosas</div>
+        <div class="mh-ficha__div" style="background:#D4A090"></div>
+        <p class="mh-ficha__texto">Nombre dado a un grupo de jóvenes —algunas menores de edad— fusiladas por el régimen franquista en agosto de 1939, convirtiéndose en símbolo de la represión de la posguerra. <strong>Carmen Barrero, Martina Barroso, Blanca Brisac, Pilar Bueno, Julia Conesa, Adelina García, Elena Gil, Virtudes González, Ana López, Joaquina López, Dionisia Manzanero, Victoria Muñoz y Luisa Rodríguez</strong> fueron detenidas por su vinculación con la República y acusadas injustamente.<br><br>Representan a una generación de mujeres que en la República alcanzaron gran participación pública y política, y fueron castigadas por su ideología y por su género.</p>
+      </div>
+
+      <!-- MARY POPPINS -->
+      <div class="mh-ficha mh-ficha--p4" id="mary-poppins">
+        <div class="mh-ficha__meta">Escrito por P.L. Travers · 1934–1988</div>
+        <div class="mh-ficha__nombre">Mary Poppins</div>
+        <div class="mh-ficha__div" style="background:#C88898"></div>
+        <p class="mh-ficha__texto">Icónico personaje literario que alcanzó su fama en la adaptación cinematográfica de Disney en 1964. Más allá de la magia, muestra la importancia del movimiento sufragista y la movilización política de su época. Es una de las primeras superproducciones en mostrar cómo la estructura familiar más tradicional estaba haciendo aguas.<br><br>Mary Poppins es una mujer autónoma económica y profesionalmente, segura de sí misma que negocia e impone sus condiciones laborales, sin buscar relaciones sentimentales ni mostrar interés en el amor romántico — algo impensable en las figuras femeninas de su época.</p>
+      </div>
+
+      <!-- HARRIET TUBMAN -->
+      <div class="mh-ficha mh-ficha--p5" id="harriet-tubman">
+        <div class="mh-ficha__meta">EEUU · 1822–1913</div>
+        <div class="mh-ficha__nombre">Harriet Tubman</div>
+        <div class="mh-ficha__div" style="background:#C8A0C8"></div>
+        <p class="mh-ficha__texto">Una de las figuras más valientes de la lucha contra la esclavitud en Estados Unidos. Escapó a pie en una ruta de más de 145 km y llegó a liderar militarmente en la Guerra Civil. Organizó una ruta segura para liberar a más de <strong>800 esclavos</strong> a través del ferrocarril clandestino.<br><br>También fue figura clave en la lucha sufragista. Su popularidad es tal que existe un proyecto para que su cara aparezca en los billetes de 20 dólares, lo que la convertiría en la primera mujer y primera persona afroamericana en figurar en un billete de circulación común en EEUU.</p>
+      </div>
+
+      <!-- GRACE HOPPER -->
+      <div class="mh-ficha mh-ficha--p6" id="grace-hopper">
+        <div class="mh-ficha__meta">EEUU · 1906–1992</div>
+        <div class="mh-ficha__nombre">Grace Hopper</div>
+        <div class="mh-ficha__div" style="background:#D8B888"></div>
+        <p class="mh-ficha__texto">Científica y contraalmirante de la marina estadounidense, es la madre de la programación informática. Su amor por las matemáticas la llevó a desarrollar los primeros lenguajes informáticos básicos para nuestro día a día, democratizando el conocimiento y permitiendo que los ordenadores funcionaran con órdenes en inglés, no con complejos símbolos matemáticos.<br><br>Dedicó sus últimos años a enseñar y motivar a futuras generaciones. Hoy, el evento más importante de mujeres en tecnología del mundo lleva su nombre.</p>
+      </div>
+
+      <!-- CONCEPCIÓN ARENAL -->
+      <div class="mh-ficha mh-ficha--p1" id="concepcion-arenal">
+        <div class="mh-ficha__meta">España · 1820–1893</div>
+        <div class="mh-ficha__nombre">Concepción Arenal</div>
+        <div class="mh-ficha__div" style="background:#E8A0AE"></div>
+        <p class="mh-ficha__texto">Pensadora, escritora y activista del siglo XIX, cuyo compromiso con los derechos de la mujer, la reforma penitenciaria y la justicia social fueron su seña de identidad. A los 21 años se disfrazó de hombre para asistir a la universidad, siendo la <strong>primera mujer en hacerlo en España</strong>.<br><br>También fue la primera mujer en ocupar un cargo relevante en la administración española como Visitadora de Cárceles de Mujeres. Defendió la rehabilitación frente al castigo y la educación como herramienta de cambio, marcando el camino para el sistema de permisos penitenciarios.</p>
+      </div>
+
+      <!-- EMMELINE PANKHURST -->
+      <div class="mh-ficha mh-ficha--p2" id="emmeline-pankhurst">
+        <div class="mh-ficha__meta">Reino Unido · 1858–1928</div>
+        <div class="mh-ficha__nombre">Emmeline Pankhurst</div>
+        <div class="mh-ficha__div" style="background:#D490B8"></div>
+        <p class="mh-ficha__texto">Líder del movimiento sufragista británico y fundadora de la Unión Social y Política de las Mujeres. Dedicó toda su vida a la lucha por el derecho al voto femenino, utilizando métodos directos y confrontacionales que escandalizaron a la sociedad de su época pero que aceleraron el cambio.<br><br>Falleció en 1928, pocas semanas después de que el Parlamento concediera el voto a todas las mujeres mayores de 21 años en el Reino Unido. Su legado transformó para siempre la democracia.</p>
+      </div>
+
+      <!-- DIANA DE GALES -->
+      <div class="mh-ficha mh-ficha--p3" id="diana-gales">
+        <div class="mh-ficha__meta">Reino Unido · 1961–1997</div>
+        <div class="mh-ficha__nombre">Diana de Gales</div>
+        <div class="mh-ficha__div" style="background:#D4A090"></div>
+        <p class="mh-ficha__texto">Conocida como <em>la princesa del pueblo</em>, utilizó su posición y notoriedad para visibilizar causas humanitarias que los poderosos preferían ignorar: el sida, las minas antipersona, los sin techo. Fue pionera en romper el protocolo de la frialdad real para acercarse a los más vulnerables.<br><br>Su forma de ejercer la influencia pública redefinió el papel de la realeza en el mundo moderno, demostrando que la empatía y la cercanía son formas de poder político tanto como cualquier otro.</p>
+      </div>
+
+      <!-- ROSIE THE RIVETER -->
+      <div class="mh-ficha mh-ficha--p4" id="rosie">
+        <div class="mh-ficha__meta">EEUU · 1942–1945</div>
+        <div class="mh-ficha__nombre">Rosie the Riveter</div>
+        <div class="mh-ficha__div" style="background:#C88898"></div>
+        <p class="mh-ficha__texto">Icono cultural que representa a los millones de mujeres estadounidenses que trabajaron en las fábricas de guerra durante la Segunda Guerra Mundial, ocupando puestos considerados exclusivamente masculinos y demostrando su capacidad en todos los ámbitos.<br><br>Al terminar la guerra, fueron relegadas de nuevo a su rol tradicional de amas de casa. Su imagen sigue siendo hoy un símbolo del empoderamiento femenino y de la brecha entre lo que las mujeres son capaces de hacer y lo que la sociedad les permite hacer.</p>
+      </div>
+
+      <!-- REINA ISABEL II -->
+      <div class="mh-ficha mh-ficha--p5" id="isabel-ii">
+        <div class="mh-ficha__meta">Reino Unido · 1926–2022</div>
+        <div class="mh-ficha__nombre">Reina Isabel II</div>
+        <div class="mh-ficha__div" style="background:#C8A0C8"></div>
+        <p class="mh-ficha__texto">Reina del Reino Unido durante <strong>70 años</strong>, el reinado más largo de la historia británica y uno de los más longevos del mundo. Su presencia constante y estabilidad durante décadas de cambios históricos radicales demostró que las mujeres podían liderar con autoridad y dignidad en los más altos niveles del poder.<br><br>Modernizó progresivamente la institución monárquica adaptándola a los tiempos sin perder su esencia, siendo un referente de dedicación al servicio público durante toda su vida.</p>
+      </div>
+
+      <!-- CLEOPATRA -->
+      <div class="mh-ficha mh-ficha--p6" id="cleopatra">
+        <div class="mh-ficha__meta">Egipto · 69–30 a.C.</div>
+        <div class="mh-ficha__nombre">Cleopatra</div>
+        <div class="mh-ficha__div" style="background:#D8B888"></div>
+        <p class="mh-ficha__texto">Última faraona del Antiguo Egipto y una de las gobernantes más poderosas de la Antigüedad. Políglota que hablaba más de nueve idiomas, fue la primera de su dinastía ptolemaica en aprender el egipcio. Utilizó su inteligencia diplomática para mantener la independencia de Egipto frente a Roma.<br><br>Su figura ha sido frecuentemente reducida a sus relaciones con Julio César y Marco Antonio, pero la historia real es la de una líder política excepcional que gobernó uno de los reinos más ricos del mundo antiguo con habilidad y determinación.</p>
+      </div>
+
+      <!-- FLORENCE NIGHTINGALE -->
+      <div class="mh-ficha mh-ficha--p1" id="florence-nightingale">
+        <div class="mh-ficha__meta">Reino Unido · 1820–1910</div>
+        <div class="mh-ficha__nombre">Florence Nightingale</div>
+        <div class="mh-ficha__div" style="background:#E8A0AE"></div>
+        <p class="mh-ficha__texto">Fundadora de la enfermería moderna y pionera en el uso de estadísticas para mejorar la salud pública. Durante la Guerra de Crimea, recorrió los hospitales de campaña por las noches con su candil, reduciendo drásticamente la mortalidad mediante la higiene y los cuidados organizados.<br><br>Su trabajo transformó la medicina, la sanidad pública y la percepción del trabajo de las mujeres en el ámbito científico. Demostró que el cuidado y el rigor estadístico podían salvar más vidas que muchas intervenciones médicas de su época.</p>
+      </div>
+
+      <!-- GLORIA FUERTES -->
+      <div class="mh-ficha mh-ficha--p2" id="gloria-fuertes">
+        <div class="mh-ficha__meta">España · 1917–1998</div>
+        <div class="mh-ficha__nombre">Gloria Fuertes</div>
+        <div class="mh-ficha__div" style="background:#D490B8"></div>
+        <p class="mh-ficha__texto">Poeta española que llegó a millones de niños y adultos con una voz única, sencilla y profundamente humanista. Escribió especialmente para la infancia en una época en que eso no era considerado literatura seria, democratizando la poesía y haciéndola accesible a todos.<br><br>Detrás de su aparente sencillez se escondía una mirada crítica y feminista, una mujer que vivió en libertad, que nunca se casó, que amó a quien quiso y que convirtió su propia vida en el mayor de sus poemas.</p>
+      </div>
+
+      <!-- FRIDA KAHLO -->
+      <div class="mh-ficha mh-ficha--p3" id="frida-kahlo">
+        <div class="mh-ficha__meta">México · 1907–1954</div>
+        <div class="mh-ficha__nombre">Frida Kahlo</div>
+        <div class="mh-ficha__div" style="background:#D4A090"></div>
+        <p class="mh-ficha__texto">Pintora mexicana cuya obra autobiográfica convirtió el dolor personal — accidentes, enfermedades, abortos, traiciones — en arte político y poderoso. Sus autorretratos exploraron la identidad, el cuerpo femenino y la cultura mexicana con una honestidad radical que la adelantó décadas a su tiempo.<br><br>Símbolo universal del feminismo y de la resistencia, su imagen y su obra siguen siendo hoy más relevantes que nunca, inspirando a mujeres de todo el mundo a convertir sus heridas en fuente de poder y creatividad.</p>
+      </div>
+
+      <!-- WANGARI MAATHAI -->
+      <div class="mh-ficha mh-ficha--p4" id="wangari-maathai">
+        <div class="mh-ficha__meta">Kenia · 1940–2011</div>
+        <div class="mh-ficha__nombre">Wangari Maathai</div>
+        <div class="mh-ficha__div" style="background:#C88898"></div>
+        <p class="mh-ficha__texto">Activista medioambiental y política keniana, <strong>primera mujer africana en recibir el Premio Nobel de la Paz</strong> (2004). Fundó el Movimiento Cinturón Verde en 1977, que movilizó a mujeres rurales para plantar más de 51 millones de árboles en África, vinculando la conservación medioambiental con los derechos de las mujeres y la democracia.<br><br>Demostró que la lucha por el medioambiente y la lucha por los derechos humanos son inseparables.</p>
+      </div>
+
+      <!-- TÚ — ficha especial -->
+      <div class="mh-ficha mh-ficha--tu" id="tu">
+        <div class="mh-ficha__nombre">Tú</div>
+        <div class="mh-ficha__div" style="background:var(--rose-d)"></div>
+        <p class="mh-ficha__texto">Porque todas y cada una de nosotras llevamos dentro la semilla del cambio, ya sean cambios día a día que marcan la diferencia en la historia de los que nos rodean, o grandes e importantes hechos como los de las compañeras que aquí hemos recordado, y que demuestran que <strong><em>nosotras también hacemos historia.</em></strong></p>
+      </div>
+
+    </div><!-- /grid -->
+
+    <div class="mh-back-top">
+      <a href="#" class="back-link">↑ Volver arriba</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p><strong>Mujeres Que Cambian La Historia</strong></p>
+  <p style="margin-top:.3rem;">Exposición de amigurumis por <strong>Mayte Perni y Elena Frisuelos · Diseños ELEMA</strong></p>
+  <p style="margin-top:.5rem;font-size:.82rem;opacity:.7">2026 &nbsp;·&nbsp; <a href="https://maramotto.com" style="color:inherit;text-decoration:underline">maramotto.com</a></p>
+</footer>
+
+</body>
+</html>
