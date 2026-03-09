@@ -6,7 +6,7 @@
  * Correcciones aplicadas (2026-03-09):
  *  - ADULTO  Q9 (Coco Chanel):   opción A → bikini (no la minifalda)
  *  - EXPERTO Q9 (Frida/Amelia):  opción C → "del siglo XXI" (falsa → única correcta es B)
- *  - INFANTIL Q8 (Gloria/Lucy):   pregunta incluye referencia a Ana
+ *  - INFANTIL Q8 (Gloria/Ana):   opción B incluye "Lucy Montgomery, creadora del personaje..."
  */
 
 const LEVELS = {
@@ -111,9 +111,9 @@ const QUESTIONS = {
       correct: 2,
     },
     {
-      // CORRECTED: added "Lucy Montgomery, creadora del personaje Ana de las Tejas Verdes"
+      // CORRECTED: Lucy Montgomery named in question text, options clean
       persona: "Gloria Fuertes · Ana de las Tejas Verdes",
-      q:       "Gloria Fuertes, la poeta que escribía para niños y niñas, y Lucy Montgomery, (creadora del personaje Ana de las Tejas Verdes) tienen algo en común. ¿Qué es?",
+      q:       "Gloria Fuertes, la poeta que escribía para niños y niñas, y Lucy Montgomery (Ana de las Tejas Verdes) tienen algo en común. ¿Qué es?",
       opts:    [
         "Las dos eran pintoras",
         "Las dos escribieron especialmente para niños y niñas",
@@ -346,7 +346,7 @@ const QUESTIONS = {
       q:       "Coco Chanel aportó, gracias a sus diseños de moda:",
       opts:    [
         "El bikini y la moda playera para todas las clases sociales",
-        "Moda al alcance de todas las clases sociales",
+        "La popularización de los tacones de aguja",
         "Tejidos más ecológicos y sostenibles",
         "Libertad de movimiento y la ruptura con estereotipos de género",
       ],
