@@ -345,7 +345,7 @@ const QUESTIONS = {
       persona: "Coco Chanel",
       q:       "Coco Chanel aportó, gracias a sus diseños de moda:",
       opts:    [
-        "El bikini y la moda playera para todas las clases sociales",
+        "El bikini y la moda playera para las clases sociales",
         "La popularización de los tacones de aguja",
         "Tejidos más ecológicos y sostenibles",
         "Libertad de movimiento y la ruptura con estereotipos de género",
