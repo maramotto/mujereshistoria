@@ -2,6 +2,11 @@
  * questions.js — Mujeres Que Cambian La Historia
  * ─────────────────────────────────────────────
  * 10 preguntas por nivel · 4 niveles
+ *
+ * Correcciones aplicadas (2026-03-09):
+ *  - ADULTO  Q9 (Coco Chanel):   opción A → bikini (no la minifalda)
+ *  - EXPERTO Q9 (Frida/Amelia):  opción C → "del siglo XXI" (falsa → única correcta es B)
+ *  - INFANTIL Q8 (Gloria/Lucy):   pregunta incluye referencia a Ana
  */
 
 const LEVELS = {
@@ -106,8 +111,9 @@ const QUESTIONS = {
       correct: 2,
     },
     {
+      // CORRECTED: added "Lucy Montgomery, creadora del personaje Ana de las Tejas Verdes"
       persona: "Gloria Fuertes · Ana de las Tejas Verdes",
-      q:       "Gloria Fuertes, la poeta que escribía para niños y niñas, y Ana de las Tejas Verdes tienen algo en común. ¿Qué es?",
+      q:       "Gloria Fuertes, la poeta que escribía para niños y niñas, y Lucy Montgomery, (creadora del personaje Ana de las Tejas Verdes) tienen algo en común. ¿Qué es?",
       opts:    [
         "Las dos eran pintoras",
         "Las dos escribieron especialmente para niños y niñas",
@@ -135,7 +141,7 @@ const QUESTIONS = {
     },
   ],
 
-  // ─── JUVENIL (10) ────────────────────────────────────────────
+  // ─── JUVENIL (10) — sin cambios ──────────────────────────────
   juvenil: [
     {
       persona: "Varios personajes",
@@ -335,10 +341,11 @@ const QUESTIONS = {
       correct: 3,
     },
     {
+      // CORRECTED: opción A → bikini (no la minifalda)
       persona: "Coco Chanel",
       q:       "Coco Chanel aportó, gracias a sus diseños de moda:",
       opts:    [
-        "La minifalda y la liberación moralista de la ropa",
+        "El bikini y la moda playera para todas las clases sociales",
         "Moda al alcance de todas las clases sociales",
         "Tejidos más ecológicos y sostenibles",
         "Libertad de movimiento y la ruptura con estereotipos de género",
@@ -439,12 +446,13 @@ const QUESTIONS = {
       correct: 1,
     },
     {
+      // CORRECTED: opción C → "del siglo XXI" (falsa; solo B es correcta)
       persona: "Frida Kahlo · Amelia Tinagus",
       q:       "¿Qué tienen en común Frida Kahlo y Amelia Tinagus?",
       opts:    [
         "Ambas son políticas",
         "Ambas convirtieron su historia personal en obra y herramienta de cambio",
-        "Ambas son del mismo siglo",
+        "Ambas son del siglo XXI",
         "Ambas son pintoras",
       ],
       correct: 1,
